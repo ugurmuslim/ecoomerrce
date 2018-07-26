@@ -18,7 +18,6 @@ class CreateTableAttributeNames extends Migration
           $table->integer('attribute_id');
           $table->string('attribute_short');
           $table->string('attribute_long');
-          $table->timestamps();
           
         });
     }
