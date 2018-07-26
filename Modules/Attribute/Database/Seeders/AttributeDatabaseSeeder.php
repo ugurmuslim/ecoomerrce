@@ -16,54 +16,54 @@ class AttributeDatabaseSeeder extends Seeder
      */
     public function run()
     {
-      Attribute::create([
+      Attribute::inser([
         'attribute_human_id' => '10',
         'attribute_id' => "1",
         'attribute_short' => "K",
         'attribute_long' => "Kırmızı",
       ]);
 
-      Attribute::create([
+      Attribute::insert([
         'attribute_human_id' => '11',
         'attribute_id' => "1",
         'attribute_short' => "S",
         'attribute_long' => "Siyah",
       ]);
 
-      Attribute::create([
+      Attribute::insert([
         'attribute_human_id' => '12',
         'attribute_id' => "1",
         'attribute_short' => "Sa",
         'attribute_long' => "Sarı",
       ]);
 
-      Attribute::create([
+      Attribute::insert([
         'attribute_human_id' => '13',
         'attribute_id' => "2",
         'attribute_short' => "XS",
         'attribute_long' => "XSmall",
       ]);
 
-      Attribute::create([
+      Attribute::insert([
         'attribute_human_id' => '14',
         'attribute_id' => "2",
         'attribute_short' => "S",
         'attribute_long' => "Small",
       ]);
 
-      Attribute::create([
+      Attribute::insert([
         'attribute_human_id' => '15',
         'attribute_id' => "2",
         'attribute_short' => "M",
         'attribute_long' => "Medium",
       ]);
-      Attribute::create([
+      Attribute::insert([
         'attribute_human_id' => '16',
         'attribute_id' => "2",
         'attribute_short' => "L",
         'attribute_long' => "Large",
       ]);
-      Attribute::create([
+      Attribute::insert([
         'attribute_human_id' => '17',
         'attribute_id' => "2",
         'attribute_short' => "XL",
@@ -71,11 +71,11 @@ class AttributeDatabaseSeeder extends Seeder
       ]);
 
 
-      Attributename::create([
+      Attributename::insert([
         'name' => 'Renk',
       ]);
 
-      Attribute::create([
+      Attribute::insert([
         'name' => 'Beden',
 
       ]);
