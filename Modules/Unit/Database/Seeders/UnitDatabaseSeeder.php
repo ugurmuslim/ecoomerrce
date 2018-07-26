@@ -15,7 +15,7 @@ class UnitDatabaseSeeder extends Seeder
      */
     public function run()
     {
-      Category::create([
+      Unit::create([
         'name' => 'Adet',
       ]);
     }

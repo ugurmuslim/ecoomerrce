@@ -75,7 +75,7 @@ class AttributeDatabaseSeeder extends Seeder
         'name' => 'Renk',
       ]);
 
-      Attribute::insert([
+      Attributename::insert([
         'name' => 'Beden',
 
       ]);
