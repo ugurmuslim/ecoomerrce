@@ -4,6 +4,7 @@ namespace Modules\Category\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Category\Entities\Category;
 
 class CategoryDatabaseSeeder extends Seeder
 {
@@ -14,8 +15,93 @@ class CategoryDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
+      Category::create([
+        'name' => 'Pantolon',
+        'number_low' => "100000",
+        'number_high' => "109999",
+      ]);
 
-        // $this->call("OthersTableSeeder");
+      Category::create([
+        'name' => 'Ceket',
+        'number_low' => "110000",
+        'number_high' => "119999",
+      ]);
+
+      Category::create([
+        'name' => 'Gömlek',
+        'number_low' => "120000",
+        'number_high' => "129999",
+      ]);
+      Category::create([
+        'name' => 'T-shirt',
+        'number_low' => "130000",
+        'number_high' => "139999",
+      ]);
+      Category::create([
+        'name' => 'Elbise',
+        'number_low' => "140000",
+        'number_high' => "149999",
+      ]);
+
+      Category::create([
+        'name' => 'Etek',
+        'number_low' => "150000",
+        'number_high' => "159999",
+      ]);
+
+      Category::create([
+        'name' => 'Tulum',
+        'number_low' => "160000",
+        'number_high' => "169999",
+      ]);
+
+      Category::create([
+        'name' => 'Kazak',
+        'number_low' => "170000",
+        'number_high' => "179999",
+      ]);
+
+      Category::create([
+        'name' => 'Büstiyer',
+        'number_low' => "180000",
+        'number_high' => "189999",
+      ]);
+      Category::create([
+        'name' => 'Salopet',
+        'number_low' => "190000",
+        'number_high' => "199999",
+      ]);
+      Category::create([
+        'name' => 'Tayt ',
+        'number_low' => "200000",
+        'number_high' => "209999",
+      ]);
+      Category::create([
+        'name' => 'Hırka',
+        'number_low' => "210000",
+        'number_high' => "219999",
+      ]);
+
+      Category::create([
+        'name' => 'Sweat-shirt',
+        'number_low' => "220000",
+        'number_high' => "229999",
+      ]);
+      Category::create([
+        'name' => 'Bluz',
+        'number_low' => "230000",
+        'number_high' => "239999",
+      ]);
+      Category::create([
+        'name' => 'Atlet',
+        'number_low' => "240000",
+        'number_high' => "249999",
+      ]);
+      Category::create([
+        'name' => 'Şort',
+        'number_low' => "250000",
+        'number_high' => "259999",
+      ]);
+
     }
 }

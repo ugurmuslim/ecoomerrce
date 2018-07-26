@@ -176,7 +176,7 @@ return [
   Illuminate\Validation\ValidationServiceProvider::class,
   Illuminate\View\ViewServiceProvider::class,
   Milon\Barcode\BarcodeServiceProvider::class,
-Intervention\Image\ImageServiceProvider::class
+  Intervention\Image\ImageServiceProvider::class,
   /*
   * Package Service Providers...
   */
@@ -261,7 +261,7 @@ Intervention\Image\ImageServiceProvider::class
   'Meta' => \App\Helpers\Meta\Facades\MetaFacade::class,
   'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
   'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
-'Image' => Intervention\Image\Facades\Image::class
+  'Image' => Intervention\Image\Facades\Image::class
   ],
 
   ];
