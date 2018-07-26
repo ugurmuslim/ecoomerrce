@@ -1,0 +1,169 @@
+
+/* barcode */
+
+.barcode {
+  height : 1000px;
+
+}
+
+.barcode-dimensions-input {
+  width: 30px;
+  height: 25px;
+  border: 1px solid black;
+
+}
+
+.barcode-dimensions-checkbox {
+  width: 20px;
+  height: 15px;
+  border: 1px solid black;
+
+}
+.barcode-name {
+  font-style: italic;
+
+}
+.barcode-shop {
+  font-style: italic;
+}
+
+/* barcode */
+
+/*general*/
+
+.form-spacing-top {
+  margin-top: 30px;
+
+}
+.slide-panels{
+  display : none;
+}
+
+.sale-buttons {
+  margin-top:55px;
+}
+
+
+.small-inputs {
+  width: 30%;
+}
+
+.wide-screen {
+
+  margin-left: 190px;
+}
+
+.display-none {
+  display: none;
+}
+
+.large-input-general {
+
+  width: 170px;
+  height: 40px;
+}
+
+.large-input-datails {
+  border: 1px solid black;
+  font-size: 20pt;
+}
+
+
+.big-radio-text > input {
+  width: 15px;
+  height: 15px;
+
+}
+.close {
+  color: red;
+  opacity: 1;
+  font-size: 20px;
+}
+
+.big-radio-text {
+  font-size: 26pt;
+}
+
+/*general*/
+
+.index-btn {
+
+  height: 100px;
+  color:black;
+
+}
+
+.index-btn-a {
+
+  margin-top: 25px;
+
+}
+
+.border_right {
+  border-right: 5px solid #ddd;
+
+}
+
+.sale_save{
+  margin-top: 60px;
+}
+
+.login-header {
+  margin-top:80px;
+  font-size:50px;
+}
+
+
+#search {
+  height: 40px;;
+  width: 50%;
+}
+
+.vendor {
+  padding-bottom: 50px;
+  border-bottom: 1px solid #000;
+}
+
+.add_variation {
+  margin-top: 30px;
+}
+
+@media print {
+  /* on modal open bootstrap adds class "modal-open" to body, so you can handle that case and hide body */
+
+  body.modal-open {
+    display: none;
+  }
+  .modal{
+    visibility: hidden;
+  }
+  .modal .modal-header,
+  .modal .modal-body {
+    visibility: visible;
+    display: block; /* make visible modal body and header */
+  }
+  .non-print {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width:459px) {
+  .template {
+    margin-left: -150px;
+    height: 100%;
+  }
+  #sarebu-logo-small {
+    margin-top: -10px;
+  }
+  .big-sarebu-logo {
+    display : none;
+  }
+  .login-header {
+    margin-top:10px;
+    font-size:50px;
+    text-align: center;
+  }
+  .slidable-navbar-button {
+    display : none;
+  }
+
+}

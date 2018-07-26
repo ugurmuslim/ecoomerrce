@@ -25,6 +25,8 @@
                         </div>
                     @endif
                 </div>
+                @include('partials._messages')
+
                 @yield('content')
             </div>
 
@@ -36,9 +38,12 @@
 @stop
 
 @section('styles')
-    {{ Html::style(mix('assets/admin/css/admin.css')) }}
+  {{ Html::style(mix('assets/admin/css/admin.css')) }}
+    {{ Html::style(mix('assets/admin/css/dropzone.css')) }}
 @endsection
 
 @section('scripts')
     {{ Html::script(mix('assets/admin/js/admin.js')) }}
+    @yield('admin_scripts')
+
 @endsection

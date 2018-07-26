@@ -35,6 +35,129 @@
                 </ul>
             </div>
             <div class="menu_section">
+                <h3>{{ __('views.backend.section.navigation.sub_header_2') }}</h3>
+
+                <ul class="nav side-menu">
+                    <li>
+                        <a>
+                            <i class="fa fa-list"></i>
+                            {{ __('views.backend.section.navigation.products') }}
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('products.index') }}">
+                                    {{ __('views.backend.section.navigation.products_index') }}
+                                </a>
+                            </li>
+                            <li>
+                              <a href="{{ route('products.create') }}">
+                                    {{ __('views.backend.section.navigation.products_create') }}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('stockentry.instant') }}">
+                                    {{ __('views.backend.section.navigation.instant_entry') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('log-viewer::logs.list') }}">
+                                    {{ __('views.backend.section.navigation.products_show') }}
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav side-menu">
+                    <li>
+                        <a>
+                            <i class="fa fa-list"></i>
+                            {{ __('views.backend.section.navigation.menu_categories') }}
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('categories.index') }}">
+                                    {{ __('views.backend.section.navigation.menu_categories_index') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('categories.create') }}">
+                                    {{ __('views.backend.section.navigation.menu_categories_create') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('log-viewer::logs.list') }}">
+                                    {{ __('views.backend.section.navigation.menu_categories.show') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav side-menu">
+                    <li>
+                        <a>
+                            <i class="fa fa-list"></i>
+                            {{ __('views.backend.section.navigation.menu_sales') }}
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('sales.reportset') }}">
+                                  {{ __('views.backend.section.navigation.menu_sales_report') }}
+
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('sales.create') }}">
+                                  {{ __('views.backend.section.navigation.menu_sales_create') }}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('sales.return') }}">
+                                    {{ __('views.backend.section.navigation.menu_sales_return') }}
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav side-menu">
+                    <li>
+                        <a>
+                            <i class="fa fa-list"></i>
+                            {{ __('views.backend.section.navigation.menu_stocks') }}
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('stocks.reportset') }}">
+                                    {{ __('views.backend.section.navigation.menu_stocks_report') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('log-viewer::logs.list') }}">
+                                    {{ __('views.backend.section.navigation.menu_stocks_entry') }}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('log-viewer::logs.list') }}">
+                                    {{ __('views.backend.section.navigation.menu_stocks_update') }}
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu_section">
                 <h3>{{ __('views.backend.section.navigation.sub_header_1') }}</h3>
                 <ul class="nav side-menu">
                     <li>
@@ -51,31 +174,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="menu_section">
-                <h3>{{ __('views.backend.section.navigation.sub_header_2') }}</h3>
 
-                <ul class="nav side-menu">
-                    <li>
-                        <a>
-                            <i class="fa fa-list"></i>
-                            {{ __('views.backend.section.navigation.menu_2_1') }}
-                            <span class="fa fa-chevron-down"></span>
-                        </a>
-                        <ul class="nav child_menu">
-                            <li>
-                                <a href="{{ route('log-viewer::dashboard') }}">
-                                    {{ __('views.backend.section.navigation.menu_2_2') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('log-viewer::logs.list') }}">
-                                    {{ __('views.backend.section.navigation.menu_2_3') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
             <div class="menu_section">
                 <h3>{{ __('views.backend.section.navigation.sub_header_3') }}</h3>
                 <ul class="nav side-menu">
