@@ -16,7 +16,7 @@ class AttributeDatabaseSeeder extends Seeder
      */
     public function run()
     {
-      Attribute::inser([
+      Attribute::insert([
         'attribute_human_id' => '10',
         'attribute_id' => "1",
         'attribute_short' => "K",
