@@ -18,6 +18,7 @@ class CretaTableImages extends Migration
       $table->integer('type');
       $table->integer('type_id');
       $table->string('name');
+      $table->boolean('main');
       $table->timestamps();
     });
     }

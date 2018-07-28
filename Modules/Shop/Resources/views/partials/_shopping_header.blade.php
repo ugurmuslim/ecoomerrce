@@ -9,6 +9,20 @@
         </div>
 
         <div class="right-top-bar flex-w h-full">
+              @if (Route::has('login'))
+                  @if (!Auth::check())
+                      @if(config('auth.users.registration'))
+                          <a href="{{ url('/register') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.register') }}</a>
+                      @endif
+                      <a href="{{ url('/login') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.login') }}</a>
+                  @else
+                      @if(auth()->user()->hasRole('administrator'))
+                          <a href="{{ url('/admin') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.admin.dashboard.title') }}</a>
+                      @endif
+                      <a href="{{ url('/logout') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.logout') }}</a>
+                  @endif
+              @endif
+
           <a href="#" class="flex-c-m trans-04 p-lr-25">
             {{__('views.shop.user_account')}}
           </a>
@@ -21,7 +35,7 @@
       <nav class="limiter-menu-desktop container">
 
         <!-- Logo desktop -->
-        <a href="{{route('shop.index')}}" class="logo"> 
+        <a href="{{route('shop.index')}}" class="logo">
           <img src="{{(asset('modules/shop/images/icons/logo-01.png'))}}" alt="IMG-LOGO">
         </a>
 

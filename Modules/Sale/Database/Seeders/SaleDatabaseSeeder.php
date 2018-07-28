@@ -4,6 +4,7 @@ namespace Modules\Sale\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Sale\Entities\Sale;
 
 class SaleDatabaseSeeder extends Seeder
 {
@@ -14,8 +15,25 @@ class SaleDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
+      Sale::create([
+        'name' => 'Satış',
+      ]);
 
-        // $this->call("OthersTableSeeder");
+      Sale::create([
+        'name' => 'İade',
+      ]);
+      Sale::create([
+        'name' => 'Kampanya',
+      ]);
+
+      Sale::create([
+        'name' => 'Kapanış Düzeltme',
+      ]);
+
+      Sale::create([
+        'name' => 'Online',
+      ]);
+
+
     }
 }
