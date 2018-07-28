@@ -63,4 +63,5 @@ class Stockentry extends Model
     }
     return $attribute_stock;
   }
-}
+
+  }

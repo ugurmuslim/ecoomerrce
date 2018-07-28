@@ -20,12 +20,14 @@
                           <a href="{{ url('/admin') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.admin.dashboard.title') }}</a>
                       @endif
                       <a href="{{ url('/logout') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.logout') }}</a>
+                      <a href="#" class="flex-c-m trans-04 p-lr-25">
+
+                        {{Auth::user()->name}}
+                      </a>
+
                   @endif
               @endif
 
-          <a href="#" class="flex-c-m trans-04 p-lr-25">
-            {{__('views.shop.user_account')}}
-          </a>
 
         </div>
       </div>

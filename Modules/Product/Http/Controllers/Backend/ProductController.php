@@ -10,6 +10,7 @@ use Modules\Category\Entities\Category;
 use Modules\Unit\Entities\Unit;
 use Modules\Attribute\Entities\Attribute;
 use Modules\Attribute\Entities\Attributename;
+use DB;
 use Image;
 class ProductController extends Controller
 {
@@ -91,7 +92,13 @@ class ProductController extends Controller
 public function show($slug)
 {
   $product = Product::where('slug',$slug)->first();
-  return view('product::show')->withProduct($product);
+  if($product_latest_entry = DB::table('stock_entry')->where('product_id',$product->id)->orderBy('created_at','desc')->get()->groupBy('created_at')->first()) {
+    $product_latest_quantity = $product_latest_entry->sum('quantity');
+  }
+
+  return view('product::show')->withProduct($product)
+  ->with('product_latest_quantity',$product_latest_quantity);
+
 }
 
 /**

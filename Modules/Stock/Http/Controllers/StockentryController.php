@@ -131,8 +131,8 @@ class StockentryController extends Controller
     $stocks = $attribute->instantStock($stock_attributes);
     $entries = $stock_entry1->instantEntry($stock_attributes,$stock_movement_type,$entry_price,$stock_movement_package);
 
-
     foreach($stocks as $stock) {
+      if($stock['stock']) {
       if($p = $product->sizes()->where('size_id',$stock['size_id'])->where('color_id',$stock['color_id'])->first()){
         $last_stock = $p->pivot->stock + $stock['stock'];
         DB::table('product_attributes')->where('product_id',$product->id)
@@ -144,9 +144,12 @@ class StockentryController extends Controller
         $product->sizes()->attach([$stock['size_id']=>['color_id' =>$stock['color_id'],'stock'=>$stock['stock']]]);
       }
     }
+    }
+    if($stock['stock']) {
     foreach($entries as $entry ) {
       $product->sizes2()->attach($entry);
     }
+  }
 
     $request->session()
     ->flash('success',"$product->name Ürünü Stoğa Girildi");

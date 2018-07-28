@@ -11,23 +11,19 @@
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-address-card"></i> {{ __('views.admin.dashboard.count_1') }}</span>
             <div>
-                <span class="count green">{{  $counts['users'] - $counts['users_unconfirmed'] }}</span>
-                <span class="count">/</span>
-                <span class="count red">{{ $counts['users_unconfirmed'] }}</span>
+                <span class="count green">{{  $counts['stock_entry'] }} <span class="simge-tl" >&#8378;</span></span>
             </div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user-times "></i> {{ __('views.admin.dashboard.count_2') }}</span>
             <div>
-                <span class="count green">{{  $counts['users'] - $counts['users_inactive'] }}</span>
-                <span class="count">/</span>
-                <span class="count red">{{ $counts['users_inactive'] }}</span>
+                <span class="count green">{{  $counts['stock'] }}</span>
             </div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-lock"></i> {{ __('views.admin.dashboard.count_3') }}</span>
             <div>
-                <span class="count green">{{  $counts['protected_pages'] }}</span>
+                <span class="count green">{{  $counts['sales_day'] }} <span class="simge-tl" >&#8378;</span></span>
             </div>
         </div>
     </div>

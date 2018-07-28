@@ -15,6 +15,10 @@ class Product extends Model
     return  $this->belongsTo('Modules\Category\Entities\Category');
   }
 
+  public function unit() {
+    return  $this->belongsTo('Modules\Unit\Entities\Unit');
+  }
+
   public function images() {
     return  $this->hasMany('Modules\Image\Entities\Image','type_id');
   }
@@ -29,6 +33,10 @@ class Product extends Model
   public function colors() {
     return  $this->belongsToMany('Modules\Attribute\Entities\Attribute','product_attributes','product_id','color_id')->withPivot('stock','size_id');
   }
+
+  public function sales() {
+  return  $this->belongsToMany('Modules\Sale\Entities\Sale')->withPivot('sale_price','sale_quantity','size_id')->withTimestamps();
+}
 
   public function scopeProductSlug($query,$slug){
     return $query->where('slug', $slug);

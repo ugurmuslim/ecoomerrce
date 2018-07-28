@@ -5,6 +5,7 @@ namespace Modules\Sale\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Sale\Entities\Sale;
+use Modules\Sale\Entities\Payment;
 
 class SaleDatabaseSeeder extends Seeder
 {
@@ -34,6 +35,20 @@ class SaleDatabaseSeeder extends Seeder
         'name' => 'Online',
       ]);
 
+      Payment::create([
+        'name' => 'Nakit',
+      ]);
 
+      Payment::create([
+        'name' => 'Kredi Kartı',
+      ]);
+
+      Payment::create([
+        'name' => 'Kargo',
+      ]);
+
+      Payment::create([
+        'name' => 'Borç Satış',
+      ]);
     }
 }
