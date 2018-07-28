@@ -21,7 +21,7 @@
       <nav class="limiter-menu-desktop container">
 
         <!-- Logo desktop -->
-        <a href="{{route('shop.index')}}" class="logo">
+        <a href="{{route('shop.index')}}" class="logo"> 
           <img src="{{(asset('modules/shop/images/icons/logo-01.png'))}}" alt="IMG-LOGO">
         </a>
 
