@@ -39,7 +39,7 @@ class Stockentry extends Model
   public function createStockPackageNumber($last_package){
     if($last_package)
     {
-      $package_number = $last_package->stock_movement_package + 1;
+      $package_number = $last_package->package + 1;
     }
     else {
       $package_number = 1;

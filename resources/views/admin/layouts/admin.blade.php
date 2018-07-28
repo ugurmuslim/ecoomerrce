@@ -5,6 +5,7 @@
 @section('page')
     <div class="container body">
         <div class="main_container">
+
             @section('header')
                 @include('admin.sections.navigation')
                 @include('admin.sections.header')
@@ -26,7 +27,6 @@
                     @endif
                 </div>
                 @include('partials._messages')
-
                 @yield('content')
             </div>
 

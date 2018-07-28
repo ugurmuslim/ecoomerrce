@@ -66,7 +66,6 @@ class StockentryController extends Controller
     $stock_entry = new Stockentry;
     $last_package = Stockentry::orderBy('id','DESC')->first();
     $stock_movement_package = $stock_entry->createStockPackageNumber($last_package);
-
     $product->name = $request->name;
     $product->category_id = $request->category_id;
     $product->unit_id = $request->unit_id;

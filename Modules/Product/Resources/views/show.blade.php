@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title', __('views.admin.users.index.title'))
+@section('title', __('views.admin.users.product.show'))
 
 @section('content')
 

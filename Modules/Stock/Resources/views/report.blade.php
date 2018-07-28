@@ -9,7 +9,6 @@
     <div class="row form-spacing-top">
 
 <div class="col-md-12">
-
       @foreach($packages as $package_id=>$details)
         <dl class="row" style="background-color:#000030; color:white; ">
           <dd class="col-md-2"><strong>Tip : {{ $details[0]->stockmovement->name }}</strong></dd>

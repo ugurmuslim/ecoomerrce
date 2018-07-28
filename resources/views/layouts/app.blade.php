@@ -12,6 +12,7 @@
         @meta
 
         {{--Common App Styles--}}
+        
         {{ Html::style(mix('assets/app/css/app.css')) }}
         {{ Html::style(mix('assets/common/css/styles.css')) }}
 
