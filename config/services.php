@@ -105,4 +105,11 @@ return [
         'scopes'        => [],
         'with'          => [],
     ],
+
+    'iyizico' => [
+    'apikey' => env('IYIZICO_APIKEY'),
+    'secretkey' => env('IYIZICO_SECRETKEY'),
+    'baseurl' => env('IYIZICO_BASEURL'),
+
+  ],
 ];

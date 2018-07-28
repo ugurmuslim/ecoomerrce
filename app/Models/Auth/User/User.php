@@ -89,4 +89,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function account() {
+      return  $this->hasOne('Modules\Account\Entities\Accountinfo');
+    }
+
 }

@@ -5,7 +5,7 @@ namespace Modules\Cart\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Cart;
 class CartController extends Controller
 {
     /**
@@ -33,6 +33,21 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+      $size = explode('-',$request->size);
+      $size_id = $size[0];
+      $size_name = $size[1];
+
+      $color = explode('-',$request->color);
+      $color_id = $color[0];
+      $color_name = $color[1];
+
+    Cart::add($request->product_id,$request->product_name,$request->quantity,$request->product_price,
+    ['size'=>['size_id'=>$size_id,'size_name'=>$size_name],
+    'color'=>['color_id'=>$color_id,'color_name'=>$color_name]])
+    ->associate('App\Product');
+    $request->session()
+    ->flash('success','Sepete Eklendi');
+    return back();
     }
 
     /**
@@ -69,4 +84,9 @@ class CartController extends Controller
     public function destroy()
     {
     }
+
+    public function empty()
+      {
+          Cart::destroy();
+      }
 }

@@ -41,15 +41,33 @@
     $i = 0;
 @endphp
 
+@if($product->images()->first())
+<div class="row">
+  <div class="col-md-12">
+    @foreach($product->images as $image)
+      <div class="col-md-2">
+        <img src="{{asset('images/' . $image->name)}}" style="width:150px;"alt="">
+        <a href="{{route('images.delete',$image->name)}}" class="btn btn-danger">Sil</a>
+      </div>
+    @endforeach
+  </div>
+</div>
+@endif
 
-    <form method="post" action="{{route('products.imageupload')}}" enctype="multipart/form-data"
+<div class="row form-spacing-top">
+  <div class="col-md-12">
+
+    <form method="post" action="{{route('images.imageupload')}}" enctype="multipart/form-data"
                       class="dropzone" id="myAwesomeDropzone">
                       {{ csrf_field() }}
                     <input type="file" name="file" />
+                    <input type="number" name="product" value="{{$product->id}}" hidden />
+                    <input type="number" name="type" value="1" hidden />
     </form>
+  </div>
+</div>
 
-
-<div class="row">
+  <div class="row">
   @foreach($product->sizes as $size)
     @if(!in_array($size->id,$size_old_ids))
       <div class="col-md-3">
@@ -278,14 +296,12 @@
                    headers: {
                                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                            },
-                   type: 'POST',
-                   url: '{{ url("products/image/delete") }}',
-                   data: {filename: name},
+                   type: 'GET',
+                   url: '{{ url("image/delete") }}' + '/' + name,
                    success: function (data){
                        console.log("File has been successfully removed!!");
                    },
                    error: function(e) {
-                       console.log(e);
                    }});
                    var fileRef;
                    return (fileRef = file.previewElement) != null ?

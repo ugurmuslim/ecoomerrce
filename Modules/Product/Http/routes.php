@@ -1,10 +1,8 @@
 <?php
 
-Route::group(['middleware' => ['web','admin'], 'prefix' => 'products', 'namespace' => 'Modules\Product\Http\Controllers'], function()
+Route::group(['middleware' => ['web','admin'], 'prefix' => 'products', 'namespace' => 'Modules\Product\Http\Controllers\Backend'], function()
 {
 
-  Route::post('image/delete','ImageUploadController@fileDestroy');
-  Route::post('/upload','ProductController@imageUpload')->name('products.imageupload');
   Route::get('/change/ready', 'ProductController@changeReady')->name('products.change_ready');
   Route::get('/create', 'ProductController@create')->name('products.create');
   Route::get('/edit/{slug}', 'ProductController@edit')->name('products.edit');
@@ -16,4 +14,23 @@ Route::group(['middleware' => ['web','admin'], 'prefix' => 'products', 'namespac
   Route::post('/change/edit', 'ProductController@editGet')->name('products.edit_get');
   Route::get('/{id}/{size}/{price}/barcode', 'ProductController@barcode')->name('products.barcode');
   Route::get('/productSaleGet/{product_id}/{date_first}/{date_last}','ProductController@productSaleGet')->name('products.productSaleGet');
+});
+
+
+
+Route::group(['middleware' => ['web',], 'prefix' => 'products', 'namespace' => 'Modules\Product\Http\Controllers\Frontend'], function()
+{
+
+
+  Route::get('/detail/{slug}', 'ProductController@show')->name('product.shop-detail');
+
+});
+
+
+Route::group(['middleware' => ['web',], 'prefix' => 'api', 'namespace' => 'Modules\Product\Http\Controllers\Frontend'], function()
+{
+
+
+  Route::get('/attributes/{slug}/{attr_id}/{attr}', 'ProductController@attributes');
+
 });

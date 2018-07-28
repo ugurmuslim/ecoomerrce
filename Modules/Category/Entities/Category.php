@@ -17,4 +17,13 @@ class Category extends Model
       }
       return $cats;
     }
+
+
+    public function image() {
+      return  $this->hasOne('Modules\Image\Entities\Image','type_id');
+    }
+
+    public function products() {
+      return  $this->hasMany('Modules\Product\Entities\Product');
+    }
 }

@@ -15,6 +15,10 @@ class Product extends Model
     return  $this->belongsTo('Modules\Category\Entities\Category');
   }
 
+  public function images() {
+    return  $this->hasMany('Modules\Image\Entities\Image','type_id');
+  }
+
   public function sizes() {
     return  $this->belongsToMany('Modules\Attribute\Entities\Attribute','product_attributes','product_id','size_id')->withPivot('stock','color_id');
   }
