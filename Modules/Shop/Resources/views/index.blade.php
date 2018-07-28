@@ -410,6 +410,8 @@
 
 		<div class="row isotope-grid">
 			@foreach($products as $product)
+				@if($product->images()->first())
+
 			<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category->name}}">
 				<!-- Block2 -->
 				<div class="block2">
@@ -442,6 +444,7 @@
 					</div>
 				</div>
 			</div>
+		@endif
 		@endforeach
 		</div>
 			<!-- Load more -->
