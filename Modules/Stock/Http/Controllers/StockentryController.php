@@ -70,6 +70,7 @@ class StockentryController extends Controller
     $product->category_id = $request->category_id;
     $product->unit_id = $request->unit_id;
     $product->price = $request->price;
+    $product->details = $request->details;
     $product->size_track = $request->size_track;
     $product->slug = $slug;
     $stock_attributes = $request->stock_attributes;

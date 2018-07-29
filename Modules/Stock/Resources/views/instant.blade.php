@@ -32,16 +32,15 @@
       {{ Form::label('name','Ürün İsmi:',['class'=>'form-spacing-top']) }}
       {{ Form::text('name',null,['class'=>'form-control name','required' => ''])}}
 
+      {{ Form::label('details','Ürün Açıklaması:',['class'=>'form-spacing-top']) }}
+      {{ Form::textarea('details',null,['class'=>'form-control name','required' => ''])}}
+
       {{ Form::label('category_id','Kategori İsmi:',['class'=>'form-spacing-top']) }}
       <select class="category form-control" style="height:40px;" name="category_id">
         @foreach($categories as $category)
           <option class="cat" value='{{ $category->id }}' @if(old('category_id') == $category->id) selected @endif>{{ $category->name }}</option>
           @endforeach
-
         </select>
-
-        {{ Form::label('production_price','Üretim Maliyeti:',['class'=>'form-spacing-top']) }}
-        {{ Form::number('production_price',0,['class'=>'form-control','step'=>'any','required' => '','data-parsley-type' => 'number'])}}
 
         {{ Form::label('entry_price','Giriş Fiyatı:',['class'=>'form-spacing-top']) }}
         {{ Form::number('entry_price',null,['class'=>'form-control','step'=>'any','required' => '','data-parsley-type' => 'number'])}}

@@ -38,21 +38,20 @@
 							<div class="wrap-slick3 flex-sb flex-w">
 								<div class="wrap-slick3-dots"></div>
 								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
 								<div class="slick3 gallery-lb">
-									<div class="item-slick3" data-thumb="{{asset('images/' . $product->images()->first()->name)}}">
+									<div class="item-slick3" data-thumb="{{asset('images/products/' . $product->images()->mainImage()->name)}}">
 										<div class="wrap-pic-w pos-relative">
-											<img src="{{asset('images/' . $product->images()->first()->name)}}" style="width:510px; height:630px;"alt="IMG-PRODUCT">
+											<img src="{{asset('images/products/' . $product->images()->mainImage()->name)}}" style="width:510px; height:630px;"alt="IMG-PRODUCT">
 
 											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
 												<i class="fa fa-expand"></i>
 											</a>
 										</div>
 									</div>
-									@foreach($product->images()->get() as $image)
-										<div class="item-slick3" data-thumb="{{asset('images/' . $image->name)}}">
+									@foreach($product->images()->featuredImages() as $image)
+										<div class="item-slick3" data-thumb="{{asset('images/products/' . $image->name)}}">
 											<div class="wrap-pic-w pos-relative">
-												<img src="{{asset('images/' . $image->name)}}" alt="IMG-PRODUCT">
+												<img src="{{asset('images/products/' . $image->name)}}" alt="IMG-PRODUCT">
 
 												<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
 													<i class="fa fa-expand"></i>
@@ -82,7 +81,7 @@
 							</span>
 
 							<p class="stext-102 cl3 p-t-23">
-								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+								{{$product->details}}
 							</p>
 
 							<!--  -->
@@ -392,38 +391,40 @@
 			<div class="slick2">
 
 				@foreach($relatedproducts as $related_product)
-					<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-						<!-- Block2 -->
-						<div class="block2">
-							<div class="block2-pic hov-img0">
-								<img src="{{asset('images/' . $related_product->images()->first()->name)}}" style="width:255px; height:315px;"alt="IMG-PRODUCT">
+					@if($related_product->images()->first())
+						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-pic hov-img0">
+									<img src="{{asset('images/' . $related_product->images()->first()->name)}}" style="width:255px; height:315px;"alt="IMG-PRODUCT">
 
-								<a href="{{route('product.shop-detail',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-									{{__('views.shop.products_quickview')}}
-								</a>
-							</div>
-
-							<div class="block2-txt flex-w flex-t p-t-14">
-								<div class="block2-txt-child1 flex-col-l ">
-									<a href="{{route('product.shop-detail',$product->slug)}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-										{{$related_product->name}}
+									<a href="{{route('product.shop-detail',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+										{{__('views.shop.products_quickview')}}
 									</a>
-
-									<span class="stext-105 cl3">
-										<span class="simge-tl">&#8378;</span> {{$related_product->price}}
-
-									</span>
 								</div>
-								{{--
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-											<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+
+								<div class="block2-txt flex-w flex-t p-t-14">
+									<div class="block2-txt-child1 flex-col-l ">
+										<a href="{{route('product.shop-detail',$product->slug)}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+											{{$related_product->name}}
 										</a>
-									</div>--}}
+
+										<span class="stext-105 cl3">
+											<span class="simge-tl">&#8378;</span> {{$related_product->price}}
+
+										</span>
+									</div>
+									{{--
+										<div class="block2-txt-child2 flex-r p-t-3">
+											<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+												<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+												<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+											</a>
+										</div>--}}
+									</div>
 								</div>
 							</div>
-						</div>
+						@endif
 					@endforeach
 				</div>
 			</div>

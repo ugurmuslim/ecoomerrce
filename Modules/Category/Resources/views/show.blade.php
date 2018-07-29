@@ -37,8 +37,8 @@
 <div class="row">
   <div class="col-md-12">
       <div class="col-md-2">
-        <img src="{{asset('images/' . $category->image->name)}}" style="width:150px;"alt="">
-        <a href="{{route('images.delete',$category->image->name)}}" class="btn btn-danger">Sil</a>
+        <img src="{{asset('images/categories/' . $category->image->name)}}" style="width:130px;"alt="">
+        <a href="{{route('images.delete',['filename'=>$category->image->name,'foldername'=>'categories'])}}" class="btn btn-danger">Sil</a>
       </div>
   </div>
 </div>
@@ -53,6 +53,7 @@
                     <input type="file" name="file" />
                     <input type="number" name="product" value="{{$category->id}}" hidden />
                     <input type="number" name="type" value="2" hidden />
+                    <input type="text" name="foldername" class="foldername" value="categories" hidden />
     </form>
   </div>
 </div>
@@ -239,13 +240,13 @@
            removedfile: function(file)
            {
                var name = file.upload.filename;
-               console.log(name);
+               var foldername = $('.foldername').val();
                $.ajax({
                    headers: {
                                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                            },
                    type: 'GET',
-                   url: '{{ url("image/delete") }}' + '/' + name,
+                   url: '{{ url("image/delete") }}' + '/' + name + '/' + foldername,
                    success: function (data){
                        console.log("File has been successfully removed!!");
                    },
