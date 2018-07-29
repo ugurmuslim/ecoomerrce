@@ -29,7 +29,7 @@ class StockController extends Controller
     $date_last = $request->datelast;
     $time_set = $time->setReportTime($request);
     $stock_entries = Stockentry::whereDate('created_at','>=',$time_set[0])
-    ->whereDate('created_at','>=',$time_set[0])
+    ->whereDate('created_at','>=',$time_set[1])
     ->get();
     return view('stock::report')->withStockentries($stock_entries);
   }

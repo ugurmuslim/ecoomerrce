@@ -9,10 +9,10 @@
         <label class="btn btn-primary active">
           <input type="radio" name="options" id="option1" autocomplete="off" checked value="D"> Günlük
         </label>
-        <label class="btn btn-primary ml-5">
+        <label class="btn btn-primary ml-5" style="margin-left:15px;">
           <input type="radio" name="options" id="option2"  autocomplete="off" value="W"> 7 Günlük
         </label>
-        <label class="btn btn-primary ml-5">
+        <label class="btn btn-primary ml-5" style="margin-left:15px;">
           <input type="radio" name="options" id="option3"  autocomplete="off" value="M"> Son 30 gün
         </label>
       </div>
@@ -20,6 +20,10 @@
         <input type="checkbox" name="" id="formanual">
         {!!Form::date('datefirst', \Carbon\Carbon::now(),['class'=>'manual ml-3', 'disabled']) !!}
         {!!Form::date('datelast', \Carbon\Carbon::now(),['class'=>'manual ml-3','disabled']) !!}
+      </div>
+
+      <div class="form-spacing-top">
+        <input type="checkbox" name="product_report" ><strong class="ml-3"> Ürün Bazında Rapor</strong>
       </div>
 
       {{Form::submit('Satış Raporu',['class' => 'btn btn-success  form-spacing-top']) }}

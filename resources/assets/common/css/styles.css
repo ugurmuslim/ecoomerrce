@@ -1,6 +1,4 @@
-.report_buttons {
-  margin-left: 15px;
-}
+
 /* barcode */
 
 .barcode {
@@ -21,6 +19,11 @@
   border: 1px solid black;
 
 }
+
+
+
+
+
 .barcode-name {
   font-style: italic;
 
@@ -149,6 +152,11 @@
   }
 }
 @media screen and (max-width:459px) {
+
+.phone_not_display {
+  display: none;
+}
+
   .template {
     margin-left: -150px;
     height: 100%;

@@ -61,11 +61,6 @@
                                     {{ __('views.backend.section.navigation.instant_entry') }}
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('log-viewer::logs.list') }}">
-                                    {{ __('views.backend.section.navigation.products_show') }}
-                                </a>
-                            </li>
 
                         </ul>
                     </li>
@@ -89,11 +84,7 @@
                                     {{ __('views.backend.section.navigation.menu_categories_create') }}
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('log-viewer::logs.list') }}">
-                                    {{ __('views.backend.section.navigation.menu_categories.show') }}
-                                </a>
-                            </li>
+                        
                         </ul>
                     </li>
                 </ul>
@@ -166,15 +157,10 @@
                             {{ __('views.backend.section.navigation.menu_1_1') }}
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('admin.permissions') }}">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('views.backend.section.navigation.menu_1_2') }}
-                        </a>
-                    </li>
+
                 </ul>
             </div>
-
+            {{--
             <div class="menu_section">
                 <h3>{{ __('views.backend.section.navigation.sub_header_3') }}</h3>
                 <ul class="nav side-menu">
@@ -186,6 +172,7 @@
                   </li>
                 </ul>
             </div>
+            --}}
         </div>
         <!-- /sidebar menu -->
     </div>

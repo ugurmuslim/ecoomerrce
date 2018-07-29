@@ -65,6 +65,7 @@ class Productsale extends Model
     $sale_id = $request->sale_id;
     $product_quantity = $request->quantity;
     $product_price = $request->product_price;
+    $category_id = $request->category_id;
     $product_size = $request->product_size;
     $product_color = $request->product_color;
     $product_id = $request->product_id;
@@ -75,6 +76,7 @@ class Productsale extends Model
 
     //  $non_products = array(1,2,3,4);
     foreach($product_id as $key=>$id){
+      $product = $product->find($id);
       $size_id = $product_size[$key];
       $color_id = $product_color[$key];
       $product_quan =  $product_quantity[$key];
@@ -85,6 +87,7 @@ class Productsale extends Model
       'product_id' => $id,
       'product_human_id'=>$product_human_id[$key],
       'product_name' => $product_name[$key],
+      'category_id' => $product->category_id,
       'sale_id' => $sale_id,
       'size_id' => $size_id ,
       'color_id' => $color_id ,
@@ -98,7 +101,6 @@ class Productsale extends Model
       'middleman_id' => $request->middleman_id,
       'sale_package' => $sale_package,
       ];
-      $product = $product->find($id);
       $product->sizes()->where('size_id', $size_id)
       ->where('color_id',$color_id)
       ->decrement('stock',$product_quan);

@@ -26,10 +26,13 @@ class SaleController extends Controller
     $date_last = $request->datelast;
     $time_set = $sale->setReportTime($request);
     $sales = Productsale::whereDate('created_at','>=',$time_set[0])
-    ->whereDate('created_at','>=',$time_set[0])
+    ->whereDate('created_at','>=',$time_set[1])
     ->get();
-    
 
-    return view('sale::report')->withSales($sales);
+    $view = 'sale::report';
+    if($request->product_report !== null) {
+      $view = 'sale::reportproduct';
+    }
+    return view($view)->withSales($sales);
   }
 }

@@ -9,10 +9,10 @@
         <label class="btn btn-primary active">
           <input type="radio" name="options" id="option1" autocomplete="off" checked value="D" > Günlük
         </label>
-        <label class="btn btn-primary ml-5 report_buttons">
+        <label class="btn btn-primary" style="margin-left:15px;">
           <input type="radio" name="options" id="option2"  autocomplete="off" value="W"> 7 Günlük
         </label>
-        <label class="btn btn-primary ml-5 report_buttons">
+        <label class="btn btn-primary"style="margin-left:15px;">
           <input type="radio" name="options" id="option3"  autocomplete="off" value="M"> Son 30 gün
         </label>
       </div>

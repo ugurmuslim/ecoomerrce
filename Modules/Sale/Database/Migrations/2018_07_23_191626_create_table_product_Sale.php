@@ -18,6 +18,7 @@ class CreateTableProductSale extends Migration
           $table->integer('product_id');
           $table->integer('product_human_id');
           $table->string('product_name');
+          $table->integer('category_id');
           $table->integer('sale_id');
           $table->decimal('sale_price',8,2);
           $table->integer('size_id');
