@@ -3,6 +3,7 @@
 Route::group(['middleware' => ['web','admin'], 'prefix' => 'products', 'namespace' => 'Modules\Product\Http\Controllers\Backend'], function()
 {
 
+  Route::get('/search','ProductController@searchResult')->name('products.search');
   Route::get('/change/ready', 'ProductController@changeReady')->name('products.change_ready');
   Route::get('/create', 'ProductController@create')->name('products.create');
   Route::get('/edit/{slug}', 'ProductController@edit')->name('products.edit');

@@ -159,4 +159,15 @@ public function fileDestroy(Request $request)
       }
       return $filename;
   }
+
+  public function searchResult(Request $request)
+      {
+
+        $query = $request->input('query');
+        $products = Product::where('name','like',"%$query%")->get();
+        return view('shop::search-results')->withProducts($products)
+        ->withQuery($query);
+         }
+
+
 }

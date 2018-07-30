@@ -46,9 +46,9 @@
           <div class="col-md-3">
             <a href="{{route('images.delete',['filename'=>$image->name,'foldername'=>'products'])}}" class="btn btn-danger">Sil</a>
             @if($image->main == true)
-            <a href="{{route('images.main',$image->name)}}" class="btn btn-success">Ana Fotoğraf</a>
+            <a href="{{route('images.main',['filename'=>$image->name,'product_id'=>$product->id])}}" class="btn btn-success">Ana Fotoğraf</a>
           @else
-            <a href="{{route('images.main',$image->name)}}" class="btn btn-danger">Ana Fotoğraf</a>
+            <a href="{{route('images.main',['filename'=>$image->name,'product_id'=>$product->id])}}" class="btn btn-danger">Ana Fotoğraf</a>
           @endif
           </div>
         </div>

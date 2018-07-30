@@ -4,6 +4,6 @@ Route::group(['middleware' => ['web','admin'], 'prefix' => 'image', 'namespace' 
 {
   Route::post('/upload','ImageController@imageUpload')->name('images.imageupload');
   Route::get('/delete/{filename}/{foldername}','ImageController@fileDestroy')->name('images.delete');
-  Route::get('/{filename}','ImageController@changeMainPicture')->name('images.main');
+  Route::get('/{filename}/{product_id}','ImageController@changeMainPicture')->name('images.main');
   Route::get('/', 'ImageController@index');
 });

@@ -46,10 +46,10 @@ class ImageController extends Controller
   }
 
 
-  public function changeMainPicture($filename)
+  public function changeMainPicture($filename,$product_id)
   {
-    ImageTable::where('main',true)->update(['main'=>false]);
-    ImageTable::where('name',$filename)->update(['main'=>true]);
+    ImageTable::where('main',true)->where('type_id',$product_id)->update(['main'=>false]);
+    ImageTable::where('name',$filename)->where('type_id',$product_id)->update(['main'=>true]);
     return back();
   }
 
