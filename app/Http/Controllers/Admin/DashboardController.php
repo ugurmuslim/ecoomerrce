@@ -33,7 +33,7 @@ class DashboardController extends Controller
             'users' => \DB::table('users')->count(),
             'sales_day'=> \DB::table('product_sale')->whereDate('created_at',Carbon::today())->sum('sale_price'),
             'stock'=> \DB::table('product_attributes')->sum('stock'),
-            'stock_entry' => \DB::table('stock_entry')->whereDate('created_at',Carbon::today())->sum('entry_price'),
+            'stock_entry' => \DB::table('stock_entry')->whereDate('created_at',Carbon::today())->sum('price'),
             'users_unconfirmed' => \DB::table('users')->where('confirmed', false)->count(),
             'users_inactive' => \DB::table('users')->where('active', false)->count(),
             'protected_pages' => 0,

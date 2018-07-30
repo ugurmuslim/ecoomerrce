@@ -84,7 +84,7 @@
                                     {{ __('views.backend.section.navigation.menu_categories_create') }}
                                 </a>
                             </li>
-                        
+
                         </ul>
                     </li>
                 </ul>
@@ -147,6 +147,28 @@
                         </ul>
                     </li>
                 </ul>
+
+                <ul class="nav side-menu">
+                    <li>
+                        <a>
+                            <i class="fa fa-list"></i>
+                            {{ __('views.backend.section.navigation.menu_attributes') }}
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('attributes.index') }}">
+                                    {{ __('views.backend.section.navigation.menu_attributes_report') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('attributes.create') }}">
+                                    {{ __('views.backend.section.navigation.menu_attributes_create') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="menu_section">
                 <h3>{{ __('views.backend.section.navigation.sub_header_1') }}</h3>
@@ -155,6 +177,20 @@
                         <a href="{{ route('admin.users') }}">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             {{ __('views.backend.section.navigation.menu_1_1') }}
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="menu_section">
+                <h3>{{ __('views.backend.section.navigation.sub_header_shop') }}</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a href="{{ route('shop.index') }}">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            {{ __('views.backend.section.navigation.menu_shop') }}
                         </a>
                     </li>
 

@@ -3,6 +3,7 @@
 namespace Modules\Sale\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Stock\Entities\Stockentry;
 use Modules\Sale\Entities\Productsale;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;

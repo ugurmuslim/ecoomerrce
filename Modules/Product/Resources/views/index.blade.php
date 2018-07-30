@@ -1,24 +1,7 @@
 @extends('admin.layouts.admin')
 @section('title', __('views.admin.product.index.title'))
-
 @section('content')
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <button type="button" name="button" class="btn btn-primary btn-block sale-details-button">Ürünler Genel Bilgiler</button>
-    </div>
-  </div>
-  {{--  <div class="well text-center slide-panels">
-  <div class="row">
-  <div class="col-md-12">
-  <p><button type="button" name="button" class="btn btn-default" style="width:600px;"><h4>Mevcut Ürün Çeşidi:  {{ count($products)}} Adet</h4></button></p>
-  <p><button type="button" name="button" class="btn btn-default" style="width:600px;"><h4>Kategori Çeşidi:  {{ count($products->groupBy('category_id'))}} Adet</h4></button></p>
-  <p><button type="button" name="button" class="btn btn-default" style="width:600px;"><h4>Ürün Toplam Miktarı:  {{ $stocks->sum('stock') }} Adet</h4></button></p>
-</div>
-</div>
-</div>
---}}
 <div class="row">
-
   <div class="col-md-12">
     <table class="table" id="table">
       <thead>
@@ -55,12 +38,9 @@
               </tr>
           @endforeach
         @endforeach
-
       </tbody>
     </table>
     {{ $products->links() }}
-
   </div>
 </div>
-
 @endsection

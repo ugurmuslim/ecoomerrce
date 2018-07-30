@@ -77,11 +77,12 @@ class StockentryController extends Controller
     $price_all = $request->price_size;
     $entry_price = $request->entry_price;
     $stock_movement_type = 1;
+    $category_id = $request->category_id;
     $stock_entry=array();
     $attribute = new Attribute;
     $stock_entry1 = new Stockentry;
     $stocks = $attribute->instantStock($stock_attributes);
-    $entries = $stock_entry1->instantEntry($stock_attributes,$stock_movement_type,$entry_price,$stock_movement_package);
+    $entries = $stock_entry1->instantEntry($stock_attributes,$stock_movement_type,$entry_price,$stock_movement_package,$category_id);
     $category = Category::find($request->category_id);
     $product->product_id = $product->createNumber($category);
     $product->save();

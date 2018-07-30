@@ -3,6 +3,8 @@
 namespace Modules\Attribute\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Attribute\Entities\Attribute;
+use Modules\Attribute\Entities\Attributename;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
@@ -14,7 +16,9 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        return view('attribute::index');
+        $attributes = Attribute::orderBy('attribute_id','desc')->paginate(20);
+
+        return view('attribute::index')->withAttributes($attributes);
     }
 
     /**
@@ -23,7 +27,8 @@ class AttributeController extends Controller
      */
     public function create()
     {
-        return view('attribute::create');
+        $attributes = Attributename::all();
+          return view('attribute::create')->withAttributes($attributes);
     }
 
     /**
@@ -33,6 +38,22 @@ class AttributeController extends Controller
      */
     public function store(Request $request)
     {
+
+      $request->validate(array(
+      'attribute_id' => 'required',
+      'attribute_short' => 'required|max:3',
+      'attribute_long' => 'required|max:10',
+      ));
+      $attribute_human_id =  new Attribute;
+      $next_human_id = $attribute_human_id->setNextHumanId();
+      $attribute = new Attribute;
+      $attribute->timestamps = false;
+      $attribute->attribute_id = $request->attribute_id;
+      $attribute->attribute_short = $request->attribute_short;
+      $attribute->attribute_long = $request->attribute_long;
+      $attribute->attribute_human_id = $next_human_id;
+      $attribute->save();
+      return back();
     }
 
     /**

@@ -17,10 +17,12 @@ class CreateTableStockEntry extends Migration
       $table->increments('id');
       $table->integer('stock_movement_type_id');
       $table->integer('product_id');
+      $table->integer('category_id');
       $table->integer('size_id');
       $table->integer('color_id');
       $table->decimal('entry_price',8,2);
       $table->integer('quantity');
+      $table->integer('price');
       $table->integer('vendor_id')->nullable();
       $table->integer('package');
       $table->timestamps();

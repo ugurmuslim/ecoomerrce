@@ -47,15 +47,17 @@ class Stockentry extends Model
     return $package_number;
   }
 
-  public function instantEntry($attributes,$stock_movement_type_id,$entry_price,$stock_movement_package) {
+  public function instantEntry($attributes,$stock_movement_type_id,$entry_price,$stock_movement_package,$category_id) {
     $i = 0;
     $attribute_entry= [];
     foreach($attributes as $size_id=>$attr) {
       foreach($attr as $color_id=>$quan){
         $attribute_stock[$i] = [$size_id =>['stock_movement_type_id' => $stock_movement_type_id,
+        'category_id' => $category_id,
         'color_id' => $color_id,
         'entry_price'=> $entry_price,
         'quantity'=> $quan,
+        'price'=> $quan * $entry_price,
         'vendor_id'=> null,
         'package' => $stock_movement_package]];
         $i = $i + 1;
