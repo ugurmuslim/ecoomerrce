@@ -27,8 +27,6 @@
 
             @endif
           @endif
-
-
         </div>
       </div>
     </div>
@@ -80,7 +78,7 @@
 <div class="wrap-header-mobile">
   <!-- Logo moblie -->
   <div class="logo-mobile">
-    <a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+    <a href="index.html"><h3>BehiceSglm</a>
   </div>
 
   <!-- Icon header -->
@@ -111,7 +109,7 @@
 <div class="menu-mobile">
   <ul class="topbar-mobile">
     <li>
-      <div class="left-top-bar">
+      <div class=" text-center">
         {{__('views.shop.free_shipping')}}
 
       </div>
@@ -119,10 +117,24 @@
 
     <li>
       <div class="right-top-bar flex-w h-full">
+        @if (Route::has('login'))
+          @if (!Auth::check())
+            @if(config('auth.users.registration'))
+              <a href="{{ url('/register') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.register') }}</a>
+            @endif
+            <a href="{{ url('/login') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.login') }}</a>
+          @else
+            @if(auth()->user()->hasRole('administrator'))
+              <a href="{{ url('/admin') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.admin.dashboard.title') }}</a>
+            @endif
+            <a href="{{ url('/logout') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.logout') }}</a>
+            <a href="#" class="flex-c-m trans-04 p-lr-25">
 
-        <a href="#" class="flex-c-m p-lr-10 trans-04">
-          {{__('views.shop.user_account')}}
+              {{Auth::user()->name}}
+            </a>
 
+          @endif
+        @endif
         </a>
 
       </div>
