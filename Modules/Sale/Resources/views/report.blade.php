@@ -23,7 +23,7 @@
           <p><h1>Genel Toplam : {{ number_format($sales->sum('sale_price')) }} TL</h1></p>
         </div>
       </div>
-    
+
     </div>
 <div class="row form-spacing-top">
   <div class="col-md-12">
@@ -31,7 +31,7 @@
     <dl class="row" style="background-color:#000030; color:white; ">
       <dd class="col-md-1"><h5><strong>Satış No : {{ $details[0]->sale_package }}</strong></h5></dd>
       <dd class="col-md-2"><h5><strong>Tip : {{ $details[0]->sale->name }}</strong></h5></dd>
-      <dd class="col-md-2"><h5><strong>Toplam : {{ number_format($details[0]->sum('sale_price'),2) }}</h5></strong></dd>
+      <dd class="col-md-2"><h5><strong>Toplam : {{ number_format($details->sum('sale_price'),2) }}</h5></strong></dd>
       <dd class="col-md-2"><h5><strong>Ödeme Şekli : {{ $details[0]->payment->name }}</h5></strong></dd>
       <dd class="col-md-2"><h5><strong>Tarih :{{ Carbon\Carbon::parse($details[0]->created_at)->format('d/m/Y  H:i')}}</strong></h5></dd>
     </dl>

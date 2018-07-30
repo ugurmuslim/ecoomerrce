@@ -4,9 +4,7 @@
 @section('content')
 
   <div class="container">
-<h2><strong>KATEGORİ YARATMA</strong></h2>
     <div class="row vendor">
-
       <div class="col-md-8">
         {!! Form::open(array('route' => 'categories.store', 'data-parsley-validate' => '')) !!}
 

@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title', __('views.admin.product.create.title'))
+@section('title', __('views.admin.stockentry.report_title'))
 @section('content')
   @php
   $packages = $stockentries->groupBy('package');
@@ -13,7 +13,7 @@
 <div class="well text-center slide-panels">
   <div class="row">
     <div class="col-md-6">
-      @foreach($stockentries->groupBy('cateory_id') as $category)
+      @foreach($stockentries->groupBy('category_id') as $category)
         <p><button type="button" name="button" class="btn btn-default"><h4>{{number_format($category->sum('quantity'))}} Adet {{  Modules\Category\Entities\Category::find($category[0]->category_id)->name }}
           Toplam Giriş : {{number_format($category->sum(function ($x) {
             return  $x->entry_price * $x->quantity;

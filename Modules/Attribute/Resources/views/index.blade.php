@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title', __('views.admin.attribute_report'))
+@section('title', __('views.admin.attribute.report'))
 @section('content')
 <div class="row">
   <div class="col-md-12">

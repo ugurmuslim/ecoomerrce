@@ -26,7 +26,7 @@ class StockentryController extends Controller
   }
 
   /**
-  * Show the form for creating a new resource.
+  * Show the form for add a new resource.
   * @return Response
   */
   public function create()
@@ -130,7 +130,7 @@ class StockentryController extends Controller
     $stock_movement_type = 1;
     $time_set = $request->created_at . " " . $request->created_at_hour;
     $stocks = $attribute->instantStock($stock_attributes);
-    $entries = $stock_entry1->instantEntry($stock_attributes,$stock_movement_type,$entry_price,$stock_movement_package);
+    $entries = $stock_entry1->instantEntry($stock_attributes,$stock_movement_type,$entry_price,$stock_movement_package,$category_id);
 
     foreach($stocks as $stock) {
       if($stock['stock']) {
@@ -206,6 +206,7 @@ class StockentryController extends Controller
           ->where('color_id' , $stock['color_id'])
           ->increment('stock',$stock_difference);
           $product->sizes2()->attach([$stock['size_id']=>['stock_movement_type_id'=>$stock_movement_type,
+          'cateory_id'=>$product_category_id,
           'color_id'=>$stock['color_id'],
           'quantity'=> $stock_difference,
           'entry_price'=> $entry_price,

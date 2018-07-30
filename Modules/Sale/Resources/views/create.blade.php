@@ -41,7 +41,7 @@
               <th>Fiyat</th>
               <th>Adet</th>
               <th>Tutar</th>
-              <th><button type="button" name="button" class="btn btn-sm  btn-danger" id="remove-table" >Tümünü Temizle</button></th>
+              <th><button type="button" name="button" class="btn btn-sm  btn-danger" id="remove-table" >Temizle</button></th>
             </tr>
           </thead>
           <tbody class="table_rows">
@@ -55,7 +55,6 @@
       <div class="raw-total">
         <button class="btn btn-primary large-input-general mt-3">Toplam Bedel: 0 TL</button>
       </div>
-      <button type="button" name="button" class="btn large-input-general btn-warning mt-3" id="campaign_calculate">Kampanya Hesapla</button>
       <div class="row mt-5">
         @foreach($payments as $payment)
           <div class="col-md-6  ">
@@ -118,7 +117,7 @@
 
       <div class="row">
         <div class="col-md-6">
-          {{Form::submit('Kaydet',['class' => 'btn btn-success  btn-block large-input-general mt-5']) }}
+          {{Form::submit('Kaydet',['class' => 'btn btn-success  btn-block large-input-general form-spacing-top']) }}
           {{Form::close() }}
         </div>
       </div>
@@ -181,7 +180,6 @@
                 '<td class="product_price col-md-1" ><input id="product_price'+$i+ '" name="product_price['+$i+']" name="product_price['+$i+']" type="number" value="'+ $non_barcode_price +'" readonly></td>' +
                 '<td class="item_quantity col-md-1" id=' +$i +'><input id="table_quantity'+$i +'"  style="width:40px;"  name="quantity['+$i+']" type="number" value=1></td>' +
                 '<td class="item_price col-md-1" ><button id="item_price'+$i+ '" class="btn btn-success btn-sm" >' +$non_barcode_price+ ' TL</button></td>' +
-                '<td><button id="campaign'+$i+ '" class="campaign btn btn-warning btn-sm" value=0>Kampanya Yok</button></td>' +
                 '<td class="product_size col-md-1"><input type="text" style="width:100px;" name="product_id['+$i+']" value ="4" hidden ></input></td>' +
                 '</tr>'
                 $($product_row).prependTo($table_rows)
@@ -213,14 +211,13 @@
 
                 var $product_row = '<tr class="table_row" id=' + $i + '>' +
                   '<td><button type="button" class="close" style = "font-size:30px;" aria-label="Close"><span aria-hidden="true">&times;</span></button></td>' +
-                  '<td class="product_id col-md-1" ><input type="number" name="product_human_id['+$i+']" value ="'+ $product.product_id +'" readonly ></td>' +
-                  '<td class="product_size col-md-1"><input type="text" style="width:100px;" name="product_size['+$i+']" value ="'+ $size.attribute_long +'" disabled ></input></td>' +
-                  '<td class="product_size col-md-1"><input type="text" style="width:100px;" name="product_size['+$i+']" value ="'+ $color.attribute_long +'" disabled ></input></td>' +
-                  '<td class="product_name"><input type="text" name="product_name['+$i+']"style="width:300px;" value="' +$product.name +  '" readonly></td>' +
+                  '<td class="product_id col-md-1" ><input type="number" name="product_human_id['+$i+']" value ="'+ $product.product_id +'" style="width:75px;" readonly ></td>' +
+                  '<td class="product_size col-md-1"><input type="text" style="width:70px;" name="product_size['+$i+']" value ="'+ $size.attribute_long +'" disabled ></input></td>' +
+                  '<td class="product_size col-md-1"><input type="text" style="width:70px;" name="product_size['+$i+']" value ="'+ $color.attribute_long +'" disabled ></input></td>' +
+                  '<td class="product_name"><input type="text" name="product_name['+$i+']"style="width:200px;" value="' +$product.name +  '" readonly></td>' +
                   $a +
                   '<td class="item_quantity col-md-1" id=' +$i +'><input id="table_quantity'+$i +'"class ="item_quan" style="width:40px;"  name="quantity['+$i+']" type="number" value=' + $quan + '></td>' +
                   '<td class="item_price col-md-1"><button id="item_price'+$i+ '" class="btn btn-success btn-sm" >' + ($quan * $product.price).toFixed(2) + ' TL</button></td>' +
-                  '<td><button id="campaign'+$i+ '" class="campaign btn btn-warning btn-sm " value=' + $campaign.id+ '>' + $campaign.name + ' </button></td>' +
                   '<td class="product_size col-md-1"><input type="text" style="width:100px;" name="product_id['+$i+']" value ="'+ $product.id  +'" hidden ></input></td>' +
                   '<td><input type="text" style="width:100px;" name="product_size['+$i+']" value ="'+ $size.id  +'" hidden ></input></td>' +
                   '<td><input type="text" style="width:100px;" name="product_color['+$i+']" value ="'+ $color.id  +'" hidden ></input></td>' +
@@ -344,44 +341,7 @@
               get_payment();
 
             });
-            $('#campaign_calculate').on('click',function() {
-              $i = $i+1;
-              $campaign_items = [];
-              $('tr.table_row').each(function() {
-                var $campaign1 = null;
-                var $campaign = $(this).find('.campaign').val();
-                var $quantity = $(this).find('.item_quantity input').val();
-                var $campaign1 = { "campaign" : $campaign,
-                "quantity" : $quantity
-              };
-              $campaign_items.push($campaign1);
-            });
-            $campaign_items = JSON.stringify($campaign_items);
-            $.ajax({
-              dataType:'json',
-              type:'get',
-              url:'{{url('campaigns/campaignTimeGet')}}' + '/' + $campaign_items,
-              data: '',
-              success: function(response) {
-                $.each(response,function(i,$campaign) {
-                  $product_row = '<tr class="table_row" id=' + $i + '>' +
-                    '<td "><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td>' +
-                    '<td class="product_id"><input type="number" name="product_human_id['+$i+']" value ="1" readonly></td>' +
-                    '<td class="product_size"><input type="number" name="product_size['+$i+']" style="width:40px;" value ="99" readonly></input></td>' +
-                    '<td class="product_name"><input type="text" name="product_name['+$i+']" value="' +$campaign.name + '" readonly></td>' +
-                    '<td class="product_price" ><input id="product_price'+$i+ '" name="product_price['+$i+']" name="product_price['+$i+']" type="number" value="'+ (-$campaign.discount) +'" readonly></td>' +
-                    '<td class="item_quantity" id=' +$i +'><input id="table_quantity'+$i +'" style="width:40px;" name="quantity['+$i+']" type="number" value=1 readonly></td>' +
-                    '<td class="item_price"><button id="item_price'+$i+ '" class="btn btn-danger btn-sm" >' + parseInt(-$campaign.discount) + ' TL</button></td>' +
-                    '<td><button id="campaign'+$i+ '" class="campaign btn btn-danger btn-sm" value=' + $campaign.name+ '>' + $campaign.name + ' </button></td>' +
-                    '<td><input type="text" style="width:100px;" name="product_id['+$i+']" value ="1" hidden ></input></td>' +
-                    '</tr>'
-                    $($product_row).appendTo($table_rows)
-                    $get = 0;
-                    total();
-                  });
-                }
-              });
-            });
+
             function get_payment() {
                   var $payment_id = $('.payment').attr('id');
                   var atLeastOneIsChecked = $('.payment:checked').length > 0;

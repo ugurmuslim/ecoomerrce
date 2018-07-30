@@ -71,13 +71,6 @@
 </div>
 </div>
 
-<form method="post" action="{{route('images.imageupload')}}" enctype="multipart/form-data"
-class="dropzone" id="dropzone">
-{{ csrf_field() }}
-<input type="file" name="file" />
-<input type="number" name="product" value="{{$product->id}}" hidden />
-<input type="number" name="type" value="1" hidden />
-</form>
 
 <div class="row form-spacing-top">
   <div class="row">

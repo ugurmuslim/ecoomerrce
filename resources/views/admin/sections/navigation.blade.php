@@ -132,17 +132,6 @@
                                     {{ __('views.backend.section.navigation.menu_stocks_report') }}
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('log-viewer::logs.list') }}">
-                                    {{ __('views.backend.section.navigation.menu_stocks_entry') }}
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{{ route('log-viewer::logs.list') }}">
-                                    {{ __('views.backend.section.navigation.menu_stocks_update') }}
-                                </a>
-                            </li>
 
                         </ul>
                     </li>
