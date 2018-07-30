@@ -38,7 +38,7 @@
 
         <!-- Logo desktop -->
         <a href="{{route('shop.index')}}" class="logo">
-          <img src="{{(asset('modules/shop/images/icons/logo-01.png'))}}" alt="IMG-LOGO">
+          <h5><strong>BEHİCE SGLM</strong></h5>
         </a>
 
         <!-- Menu desktop -->
