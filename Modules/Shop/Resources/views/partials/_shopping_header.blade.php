@@ -21,7 +21,6 @@
               @endif
               <a href="{{ url('/logout') }}" class="flex-c-m trans-04 p-lr-25">{{ __('views.welcome.logout') }}</a>
               <a href="#" class="flex-c-m trans-04 p-lr-25">
-
                 {{Auth::user()->name}}
               </a>
 
@@ -44,12 +43,7 @@
           <ul class="main-menu">
             <li>
               <a href="{{route('shop.index')}}">{{__('views.shop.menu_home')}}</a>
-              <ul class="sub-menu">
-                <li><a href="{{route('shop.index')}}">Anasayfa</a></li>
-
-              </ul>
             </li>
-
             <li>
               <a href="#">{{__('views.shop.menu_contact')}}</a>
             </li>
@@ -143,22 +137,11 @@
 
   <ul class="main-menu-m">
     <li>
-      <a href="index.html">Home</a>
-      <ul class="sub-menu-m">
-        <li><a href="index.html">Homepage 1</a></li>
-
-      </ul>
-      <span class="arrow-main-menu-m">
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
-      </span>
+      <a href="index.html">{{__('views.shop.menu_home')}}</a>
     </li>
 
     <li>
-      <a href="product.html">Shop</a>
-    </li>
-
-    <li>
-      <a href="contact.html">Contact</a>
+      <a href="#">{{__('views.shop.menu_contact')}}</a>
     </li>
   </ul>
 </div>

@@ -214,6 +214,7 @@
   "views.shop.menu_home" : "Anasayfa",
   "views.shop.menu_shop" : "Alışveriş",
   "views.shop.menu_contact" : "İletişim",
+  "views.shop.shopping_cart" : "Alışveriş Sepeti",
   "views.shop.spring_2018" : "Bahar 2018",
   "views.shop.shop_now" : "Şimdi Alışveriş Edin",
   "views.shop.shop_category" : "Kategori",
@@ -233,8 +234,13 @@
   "views.shop.shipping" : "Teslimat",
   "views.shop.cart_total" : "Toplam",
   "views.shop.account_info_adress" : "Adres Bilgileri",
+  "views.shop_product" : "Ürün",
+  "views.shop_price" : "Fiyat",
+  "views.shop_quantity" : "Adet",
+  "views.shop_total" : "Toplam",
   "**************************** Buttons **********************": "Buttons",
-  "views.buttons.submit" : "Kaydet"
+  "views.buttons.submit" : "Kaydet",
+  "views.buttons.proceed_to_checkout": "Ödemeye GİT"
 
 
 
