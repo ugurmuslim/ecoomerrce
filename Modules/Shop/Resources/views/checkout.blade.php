@@ -19,140 +19,133 @@
 			</div>
 		</div>
 		<!-- Shoping Cart -->
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
-						<div class="m-l-25 m-r--38 m-lr-0-xl">
-							<div class="wrap-table-shopping-cart">
-								<table class="table-shopping-cart">
-									<tr class="table_head">
-										<th class="column-1">{{__('views.shop_product')}}</th>
-										<th class="column-2"></th>
-										<th class="column-3">{{__('views.shop_price')}}</th>
-										<th class="column-4">{{__('views.shop_quantity')}}</th>
-										<th class="column-5">{{__('views.shop_total')}}</th>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+					<div class="m-l-25 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							{!! Form::open(['route'=>['cart.update'],'data-parsley-validate' => '','class' => 'w-full' ]) !!}
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-1">{{__('views.shop_product')}}</th>
+									<th class="column-2"></th>
+									<th class="column-3">{{__('views.shop_price')}}</th>
+									<th class="column-4">{{__('views.shop_quantity')}}</th>
+									<th class="column-5">{{__('views.shop_total')}}</th>
+								</tr>
+								@foreach(Cart::content() as $row)
+									@php
+									$product = Modules\Product\Entities\Product::find($row->id);
+									@endphp
+									<tr class="table_row">
+										<td class="column-1">
+											<div class="how-itemcart1">
+												<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" alt="IMG">
+											</div>
+										</td>
+										<td class="column-2">{{$product->name}}<br>	<span>{{$row->options->color['color_name']}}</span>
+											<span>{{$row->options->size['size_name']}}</span>
+										</td>
+										<td class="column-3"><span class="simge-tl">&#8378;</span> {{$product->price}}</td>
+										<td class="column-4">
+											<div class="wrap-num-product flex-w m-l-auto m-r-0">
+												<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+													<i class="fs-16 zmdi zmdi-minus"></i>
+												</div>
+
+												<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" data-id = {{$product->id}} value="{{$row->qty}}">
+
+												<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+													<i class="fs-16 zmdi zmdi-plus"></i>
+												</div>
+											</div>
+										</td>
+										<td class="column-5">{{$product->price*$row->qty}} <span class="simge-tl">&#8378;</span> </td>
 									</tr>
-									@foreach(Cart::content() as $row)
-										@php
-											$product = Modules\Product\Entities\Product::find($row->id);
-										@endphp
-										<tr class="table_row">
-											<td class="column-1">
-												<div class="how-itemcart1">
-													<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" alt="IMG">
-												</div>
-											</td>
-											<td class="column-2">{{$product->name}}<br>	<span>{{$row->options->color['color_name']}}</span>
-												<span>{{$row->options->size['size_name']}}</span>
-											</td>
-											<td class="column-3"><span class="simge-tl">&#8378;</span> {{$product->price}}</td>
-											<td class="column-4">
-												<div class="wrap-num-product flex-w m-l-auto m-r-0">
-													<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-														<i class="fs-16 zmdi zmdi-minus"></i>
-													</div>
-
-													<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" data-id = {{$product->id}} value="{{$row->qty}}">
-
-													<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-														<i class="fs-16 zmdi zmdi-plus"></i>
-													</div>
-												</div>
-											</td>
-											<td class="column-5">{{$product->price*$row->qty}}</td>
-										</tr>
-										<input type="number" name="product_human_id[]" value="{{$product->product_id}}" hidden>
-										<input type="number" name="product_id[]" value="{{$product->id}}" hidden>
-										<input type="text" name="product_name[]" value="{{$product->name}}" hidden>
-										<input type="number" name="product_price[]" value="{{$product->price}}" hidden>
-										<input type="number" name="product_qty[]" value="{{$row->qty}}" hidden>
-										<input type="number" name="qty_price[]" value="{{$row->price}}" hidden>
-										<input type="number" name="product_color[]" value="{{$row->options->color['color_id']}}" hidden>
-										<input type="number" name="product_size[]" value="{{$row->options->size['size_id']}}" hidden>
-									@endforeach							</table>
-								</div>
-
-								<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-									<div class="flex-w flex-m m-r-20 m-tb-5">
-										{{--
-										<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
-										<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-										Apply coupon
-									</div>
-									--}}
-								</div>
-
-								<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-									{{__('views.shop.update_cart')}}
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
-						<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-							<h4 class="mtext-109 cl2 p-b-30">
-								{{__('views.shop.cart_totals')}}
-							</h4>
-
-							<div class="flex-w flex-t bor12 p-b-13">
-								<div class="size-208">
-									<span class="stext-110 cl2">
-										{{__('views.shop.sub_totals')}}
-
-									</span>
-								</div>
-
-								<div class="size-209">
-									<span class="mtext-110 cl2">
-										<span class="simge-tl">&#8378;</span>{{Cart::subtotal()}}
-									</span>
-								</div>
-							</div>
-
-							<div class="flex-w flex-t bor12 p-t-15 p-b-30">
-								<div class="size-208 w-full-ssm">
-									<span class="stext-110 cl2">
-										{{__('views.shop.shipping')}}
-
-									</span>
-								</div>
-
-								<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-									<p class="stext-111 cl6 p-t-2">
-										Ürünlerimiz MNG kargo ile Gönderilmektedir
-									</p>
-									{{--
-									<div class="p-t-15">
-									<span class="stext-112 cl8">
-									Calculate Shipping
-								</span>
-
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-								<select class="js-select2" name="time">
-								<option>Select a country...</option>
-								<option>USA</option>
-								<option>UK</option>
-							</select>
-							<div class="dropDownSelect2"></div>
+									<input type="number" name="row_id[]" value="{{$row->id}}" hidden>
+									<input type="number" name="product_human_id[]" value="{{$product->product_id}}" hidden>
+									<input type="number" name="product_id[]" value="{{$product->id}}" hidden>
+									<input type="text" name="product_name[]" value="{{$product->name}}" hidden>
+									<input type="number" name="product_price[]" value="{{$product->price}}" hidden>
+									<input type="number" name="product_qty[]" value="{{$row->qty}}" hidden>
+									<input type="number" name="qty_price[]" value="{{$row->price}}" hidden>
+									<input type="number" name="product_color[]" value="{{$row->options->color['color_id']}}" hidden>
+									<input type="number" name="product_size[]" value="{{$row->options->size['size_id']}}" hidden>
+								@endforeach
+							</table>
 						</div>
 
-						<div class="bor8 bg0 m-b-12">
-						<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
+						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+							{{Form::submit('Ödemeye Git',['class' => 'flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10']) }}
+							{{Form::close() }}
+						</div>
 					</div>
-
-					<div class="bor8 bg0 m-b-22">
-					<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
 				</div>
 
-				<div class="flex-w">
-				<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-				Update Totals
-			</div>
-		</div>
+				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+						<h4 class="mtext-109 cl2 p-b-30">
+							{{__('views.shop.cart_totals')}}
+						</h4>
 
+						<div class="flex-w flex-t bor12 p-b-13">
+							<div class="size-208">
+								<span class="stext-110 cl2">
+									{{__('views.shop.sub_totals')}}
+
+								</span>
+							</div>
+
+							<div class="size-209">
+								<span class="mtext-110 cl2">
+									<span class="simge-tl">&#8378;</span>{{Cart::subtotal()}}
+								</span>
+							</div>
+						</div>
+
+						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
+							<div class="size-208 w-full-ssm">
+								<span class="stext-110 cl2">
+									{{__('views.shop.shipping')}}
+
+								</span>
+							</div>
+
+							<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+								<p class="stext-111 cl6 p-t-2">
+									Ürünlerimiz MNG kargo ile Gönderilmektedir
+								</p>
+								{{--
+								<div class="p-t-15">
+								<span class="stext-112 cl8">
+								Calculate Shipping
+							</span>
+
+							<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
+							<select class="js-select2" name="time">
+							<option>Select a country...</option>
+							<option>USA</option>
+							<option>UK</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+
+					<div class="bor8 bg0 m-b-12">
+					<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
+				</div>
+
+				<div class="bor8 bg0 m-b-22">
+				<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
+			</div>
+
+			<div class="flex-w">
+			<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
+			Update Totals
+		</div>
 	</div>
-	--}}
+
+</div>
+--}}
 </div>
 </div>
 
@@ -171,10 +164,10 @@
 	</div>
 </div>
 <a href="{{route('checkout.index')}}">
-<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-			{{__('views.buttons.proceed_to_checkout')}}
-		</button>
-		</a>
+	<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+		{{__('views.buttons.proceed_to_checkout')}}
+	</button>
+</a>
 </div>
 </div>
 </div>

@@ -31,7 +31,7 @@
           </a>
 
           <span class="header-cart-item-info">
-            {{$row->qty}} x {{$row->price}} TRY
+            {{$row->qty}} x {{$row->price}} <span class="simge-tl">&#8378;</span>
           </span>
 
           <span class="header-cart-item-info">

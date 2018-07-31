@@ -2,6 +2,7 @@
 
 Route::group(['middleware' => 'web', 'prefix' => 'cart', 'namespace' => 'Modules\Cart\Http\Controllers'], function()
 {
+  Route::post('/update','CartController@update')->name('cart.update');
   Route::get('/', 'CartController@index');
   Route::post('/', 'CartController@store')->name('cart.store');
   Route::get('empty','CartController@empty')->name('cart.destroy');
