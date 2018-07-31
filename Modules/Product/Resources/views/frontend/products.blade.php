@@ -1,12 +1,8 @@
-
-
 @extends('shop::layouts.master')
 @section('title','MAĞAZA RAPOR |')
 @section('content')
 	<body class="animsition">
-
 		@include('shop::partials._shopping_header')
-
 		<!-- Cart -->
 		@include('shop::partials._shopping_cart')
 		<!-- Product -->
@@ -54,11 +50,8 @@
 				</div>
 			</div>
 		</div>
-
-
 		<!-- Footer -->
 		@include('shop::partials._footer')
-
 		<!-- Back to top -->
 		<div class="btn-back-to-top" id="myBtn">
 			<span class="symbol-btn-back-to-top">
@@ -68,5 +61,4 @@
 	@endsection
 	@section('shop_scripts')
 		@include('shop::partials._shopping_javascript')
-
 	@endsection
