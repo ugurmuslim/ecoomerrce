@@ -1770,7 +1770,7 @@ button.mfp-close {
 .filter-col1 {width: 27%;}
 .filter-col2 {width: 27%;}
 .filter-col3 {width: 26%;}
-.filter-col4 {width: 20%;}
+.filter-col4 {width: 40%;}
 
 /*---------------------------------------------*/
 .filter-link {
@@ -2089,6 +2089,8 @@ input.num-product::-webkit-inner-spin-button {
 /*---------------------------------------------*/
 .block2-txt-child1 {
   width: calc(100% - 30px);
+  position: relative;
+  left: 40%;
 }
 
 .block2-txt-child2 {
@@ -2668,7 +2670,7 @@ input.num-product::-webkit-inner-spin-button {
 ==================================================================*/
 .bg-none {background-color: transparent;}
 .bg0 {background-color: #fff;}
-.bg1 {background-color: #717fe0;}
+.bg1 {background-color: #000000;}
 .bg2 {background-color: #e6e6e6;}
 .bg3 {background-color: #222;}
 .bg5 {background-color: rgba(0,0,0,0.5);}
@@ -3085,6 +3087,7 @@ input.num-product::-webkit-inner-spin-button {
 .hov-img0 {
   display: block;
   overflow: hidden;
+  text-align: center;
 }
 
 .hov-img0 img{

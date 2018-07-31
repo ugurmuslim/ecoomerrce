@@ -19,25 +19,35 @@ class ProductController extends Controller
   * Display a listing of the resource.
   * @return Response
   */
-public function show($slug)
-{
-  $product = Product::where('slug',$slug)->first();
-  $product_category = $product->category;
 
-  $related_products = $product_category->products()->take(4)->inRandomOrder()->get();
-  return view('product::frontend.detail')->withProduct($product)
-  ->withRelatedproducts($related_products);
-}
+  public function index()
+  {
+    $products = Product::orderBy('id','desc')->paginate(15);
+    $categories = Category::all();
+    return view('product::frontend.products')->withProducts($products)
+    ->withCategories($categories);
+  }
 
-public function attributes($product_slug,$attr_type, $attr_id)
-    {
-      $product = Product::where('slug',$product_slug)->first();
-      if($attr_type == 2) {
+
+  public function show($slug)
+  {
+    $product = Product::where('slug',$slug)->first();
+    $product_category = $product->category;
+
+    $related_products = $product_category->products()->take(4)->inRandomOrder()->get();
+    return view('product::frontend.detail')->withProduct($product)
+    ->withRelatedproducts($related_products);
+  }
+
+  public function attributes($product_slug,$attr_type, $attr_id)
+  {
+    $product = Product::where('slug',$product_slug)->first();
+    if($attr_type == 2) {
       $attr = $product->colors()->where('size_id',$attr_id)->get();
-      }
-      else {
-        $attr = $product->sizes()->where('color_id',$attr_id)->get();
-      }
-      return $attr;
-     }
+    }
+    else {
+      $attr = $product->sizes()->where('color_id',$attr_id)->get();
+    }
+    return $attr;
+  }
 }

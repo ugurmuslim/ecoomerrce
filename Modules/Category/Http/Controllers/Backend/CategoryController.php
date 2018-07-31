@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Category\Http\Controllers;
+namespace Modules\Category\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use Modules\Category\Entities\Category;

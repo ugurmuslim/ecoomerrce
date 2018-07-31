@@ -21,17 +21,13 @@ Route::group(['middleware' => ['web','admin'], 'prefix' => 'products', 'namespac
 
 Route::group(['middleware' => ['web',], 'prefix' => 'products', 'namespace' => 'Modules\Product\Http\Controllers\Frontend'], function()
 {
-
-
   Route::get('/detail/{slug}', 'ProductController@show')->name('product.shop-detail');
+  Route::get('/products/all', 'ProductController@index')->name('products.products');
 
 });
 
 
 Route::group(['middleware' => ['web',], 'prefix' => 'api', 'namespace' => 'Modules\Product\Http\Controllers\Frontend'], function()
 {
-
-
   Route::get('/attributes/{slug}/{attr_id}/{attr}', 'ProductController@attributes');
-
 });

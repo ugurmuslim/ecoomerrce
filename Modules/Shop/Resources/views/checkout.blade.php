@@ -2,10 +2,8 @@
 @section('title','MAĞAZA RAPOR |')
 @section('content')
 	<body class="animsition">
-
 		<!-- Header -->
 		@include('shop::partials._shopping_header')
-
 		<!-- Cart -->
 		@include('shop::partials._shopping_cart')
 		<!-- breadcrumb -->

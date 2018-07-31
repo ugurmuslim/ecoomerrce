@@ -217,7 +217,7 @@
   "views.shop.shopping_cart" : "Alışveriş Sepeti",
   "views.shop.spring_2018" : "Bahar 2018",
   "views.shop.shop_now" : "Şimdi Alışveriş Edin",
-  "views.shop.shop_category" : "Kategori",
+  "views.shop.shop_category" : "Kategoriler",
   "views.shop.shop_product_number" : "Ürün Kodu",
   "views.shop.shop_add_to_cart" : "Sepete Ekle",
   "views.shop.shop_related_products" : "Benzer Ürünler",
@@ -238,10 +238,11 @@
   "views.shop_price" : "Fiyat",
   "views.shop_quantity" : "Adet",
   "views.shop_total" : "Toplam",
+  "views.shop_most_seller" : "En Çok Satanlar",
   "**************************** Buttons **********************": "Buttons",
   "views.buttons.submit" : "Kaydet",
-  "views.buttons.proceed_to_checkout": "Ödemeye GİT"
-
-
-
+  "views.buttons.proceed_to_checkout": "Ödemeye GİT",
+  "views.shop_load_more" : "Daha Fazla",
+  "views.shop_search" : "Ara",
+  "views.shop_filter" : "Filtre"
 }
