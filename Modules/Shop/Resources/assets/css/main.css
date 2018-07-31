@@ -39,6 +39,14 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 /* TL Simgesi */
+
+ul.with-bullets ,li.with-bullets {
+  list-style-type: disc !important;
+  padding-left:1em !important;
+  margin-left:1em;
+}
+
+
 @font-face {
   font-family: 'TRY';
   src:url('fonts/TRY.eot');
@@ -3280,6 +3288,9 @@ input.num-product::-webkit-inner-spin-button {
   .respon4 {
     width: 100%;
   }
+
+
+
 
 }
 

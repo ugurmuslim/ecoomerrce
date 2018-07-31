@@ -2,15 +2,11 @@
 @section('title','ÜRÜN |')
 @section('content')
   <body class="animsition">
-
     <!-- Header -->
     @include('shop::partials._shopping_header')
-
     <!-- Cart -->
     @include('shop::partials._shopping_cart')
-
     <!-- breadcrumb -->
-
     @include('partials._messages')
 
     <div class="container">
@@ -45,9 +41,13 @@
             <div class="row p-b-25">
               <div class="col-12 p-b-5">
                 <label class="stext-102 cl3" for="account_name">Adres İsmi</label>
-                <input class="size-111 bor8 stext-102 cl2 p-lr-20" id="account_name" type="text" name="account_name" value="">
+                <select class=" size-111 bor8 stext-102 cl2 p-lr-20" name="account_name" id="account_name">
+                  <option value="">Bir Adres Seçin</option>
+                  @foreach($adresses as $adress)
+                  <option value="{{$adress->id}}">{{$adress->account_name}}</option>
+                @endforeach
+                </select>
               </div>
-
               <div class="col-sm-6 p-b-5">
                 <label class="stext-102 cl3" for="name">İsim</label>
                 <input class="size-111 bor8 stext-102 cl2 p-lr-20" id="name" type="text" name="name" value="">
@@ -129,6 +129,19 @@
           });
         }
       });
+
+      $('#account_name').on('change',function() {
+        var $account_id = $(this).val();
+        $.ajax({
+          dataType:'json',
+          type:'get',
+          url:'{{url('api/adresses')}}' + '/' + $account_id,
+          data:'',
+          success: function(response) {
+            console.log(response);
+          }
+            });
+        });
     </script>
 
   @endsection

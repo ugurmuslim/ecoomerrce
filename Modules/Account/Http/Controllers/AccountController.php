@@ -12,15 +12,11 @@ use App\Models\Auth\User\User;
 
 class AccountController extends Controller
 {
-  /**
-  * Display a listing of the resource.
-  * @return Response
-  */
-  public function index()
-  {
-    return view('account::index');
-  }
 
+  public function detail()
+  {
+    return view('account::detail');
+  }
   /**
   * Show the form for creating a new resource.
   * @return Response
@@ -44,6 +40,7 @@ class AccountController extends Controller
     ));
     $account = new Accountinfo;
     $account->user_id = Auth::user()->id;
+    $account->account_name = $request->account_name;
     $account->first_name = $request->name;
     $account->last_name = $request->lastname;
     $account->email = $request->email;
@@ -55,7 +52,7 @@ class AccountController extends Controller
     $account->id_number = $request->id_number;
     $account->save();
     $request->session()
-    ->flash('success',"Tebrikler. Bilgileirniz güncellendi.");
+    ->flash('success',"Tebrikler. Bilgileirniz Kaydedildi.");
     return redirect()->back();
 
   }
@@ -64,6 +61,12 @@ class AccountController extends Controller
   * Show the specified resource.
   * @return Response
   */
+
+  public function getAdresses($adress_id)
+  {
+    $account = AccountInfo::find($adress_id);
+    return $account;
+  }
   public function show()
   {
     return view('account::show');
@@ -75,7 +78,10 @@ class AccountController extends Controller
   */
   public function edit()
   {
-    return view('account::edit');
+    $user = User::find(Auth::user()->id);
+    $adresses = $user->accounts()->get();
+    return view('account::information.edit')->withUser($user)
+    ->withAdresses($adresses);
   }
 
   /**

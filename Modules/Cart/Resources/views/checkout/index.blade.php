@@ -88,9 +88,9 @@
 						@php
 							$product = Modules\Product\Entities\Product::find($row->id);
 						@endphp
-						<div class="row">
+						<div class="row mt-3">
 							<div class="col-md-3">
-								<img src="{{asset('images/' . $product->images()->first()->name)}}" style="width:100px; height:120px; " alt="IMG">
+								<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" style="width:100px; height:120px; " alt="IMG">
 							</div>
 							<div class="col-md-4">
 								<ul>

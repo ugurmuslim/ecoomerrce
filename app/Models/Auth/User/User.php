@@ -90,8 +90,8 @@ class User extends Authenticatable
      */
     protected $dates = ['deleted_at'];
 
-    public function account() {
-      return  $this->hasOne('Modules\Account\Entities\Accountinfo');
+    public function accounts() {
+      return  $this->hasMany('Modules\Account\Entities\Accountinfo');
     }
 
 }

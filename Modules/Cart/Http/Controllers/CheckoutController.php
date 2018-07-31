@@ -20,7 +20,11 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-      $user = User::find(Auth::user()->id);
+
+        $user = User::find(Auth::user()->id);
+        if(!$user->account) {
+          return redirect()->route('account.create')->withError("Adres Bilgilerinizin olması Gerekli");
+        }
         return view('cart::checkout.index')->withUser($user);
     }
 
