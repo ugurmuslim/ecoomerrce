@@ -75,7 +75,15 @@ class CartController extends Controller
      */
     public function update(Request $request)
     {
-      dd($request);
+      Cart::update($request->row_id,$request->row_qty);
+      return response()->json(['success',true]);
+    }
+
+    public function remove($row_id)
+    {
+      Cart::remove($row_id);
+      return response()->json(['success',true]);
+
     }
 
     /**
