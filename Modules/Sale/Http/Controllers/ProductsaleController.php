@@ -86,4 +86,14 @@ class ProductsaleController extends Controller
   public function destroy()
   {
   }
+
+  public function deliveryUpdate($package_id,$statu)
+  {
+    Productsale::where('sale_package',$package_id)->update(['statu'=>$statu]);
+    return redirect()->route('sales.show',$package_id);
+  }
+
+
+
+
 }

@@ -43,10 +43,10 @@ class ProductController extends Controller
   {
     $product = Product::where('slug',$product_slug)->first();
     if($attr_type == 2) {
-      $attr = $product->colors()->where('size_id',$attr_id)->get();
+      $attr = $product->colors()->where('size_id',$attr_id)->where('stock','>',0)->get();
     }
     else {
-      $attr = $product->sizes()->where('color_id',$attr_id)->get();
+      $attr = $product->sizes()->where('color_id',$attr_id)->where('stock','>',0)->get();
     }
     return $attr;
   }

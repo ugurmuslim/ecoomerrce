@@ -24,7 +24,6 @@
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
 						<div class="wrap-table-shopping-cart">
-							{!! Form::open(['route'=>['cart.update'],'data-parsley-validate' => '','class' => 'w-full' ]) !!}
 							<table class="table-shopping-cart">
 								<tr class="table_head">
 									<th class="column-1">{{__('views.shop_product')}}</th>
@@ -76,10 +75,7 @@
 						</table>
 					</div>
 
-					<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-						{{Form::submit('Ödemeye Git',['class' => 'flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10']) }}
-						{{Form::close() }}
-					</div>
+
 				</div>
 			</div>
 

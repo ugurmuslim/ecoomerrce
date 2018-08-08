@@ -2098,7 +2098,6 @@ input.num-product::-webkit-inner-spin-button {
 .block2-txt-child1 {
   width: calc(100% - 30px);
   position: relative;
-  left: 40%;
 }
 
 .block2-txt-child2 {
@@ -3289,7 +3288,11 @@ input.num-product::-webkit-inner-spin-button {
     width: 100%;
   }
 
-
+  .block2-txt-child1 {
+    width: calc(100% - 30px);
+    position: relative;
+    left: 12%;
+  }
 
 
 }

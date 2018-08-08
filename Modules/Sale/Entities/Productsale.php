@@ -27,6 +27,14 @@ class Productsale extends Model
     return  $this->belongsTo('Modules\Attribute\Entities\Attribute','size_id');
   }
 
+  public function onlineOrders() {
+    return  $this->hasMany('Modules\Cart\Entities\Onlineorder','sale_package_id','sale_package');
+  }
+
+  public function saleStatu() {
+    return  $this->belongsTo('Modules\Sale\Entities\Salestatu','statu');
+  }
+
   public function color() {
     return  $this->belongsTo('Modules\Attribute\Entities\Attribute','color_id');
   }
@@ -95,6 +103,7 @@ class Productsale extends Model
       'sale_price' => $product_price[$key] * $product_quan,
       'campaign_id' => null,
       'payment_id' => 1,
+      'statu' => 1,
       'created_at' => $time_set,
       'seller_id' => 1 ,
       'customer_id' => $request->customer_id,

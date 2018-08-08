@@ -28,7 +28,7 @@
 <div class="row form-spacing-top">
   <div class="col-md-12">
   @foreach($packages as $package_id=>$details)
-  <a href="{{route('sales.show',$package_id)}}"> <dl class="row" style="background-color:#000030; color:white; ">
+    <dl class="row" style="background-color:#000030; color:white; ">
       <dd class="col-md-1"><h5><strong>Satış No : {{ $details[0]->sale_package }}</strong></h5></dd>
       <dd class="col-md-2"><h5><strong>Tip : {{ $details[0]->sale->name }}</strong></h5></dd>
       <dd class="col-md-2"><h5><strong>Toplam : {{ number_format($details->sum('sale_price'),2) }}</h5></strong></dd>
@@ -49,7 +49,7 @@
           <th>Satış Fiyat</th>
         </tr>
       </thead>
-</a>
+
       <tbody>
         @foreach($details as $detail)
           <tr>

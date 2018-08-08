@@ -5,6 +5,7 @@ namespace Modules\Sale\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Sale\Entities\Sale;
+use Modules\Sale\Entities\Salestatu as Sale_status;
 use Modules\Sale\Entities\Payment;
 
 class SaleDatabaseSeeder extends Seeder
@@ -50,5 +51,17 @@ class SaleDatabaseSeeder extends Seeder
       Payment::create([
         'name' => 'Borç Satış',
       ]);
+
+      Sale_status::create([
+        'name' => 'İşleniyor',
+      ]);
+
+      Sale_status::create([
+        'name' => 'Kargoya Verildi',
+      ]);
+
+      Sale_status::create([
+        'name' => 'Tamamlandı',
+      ]);
     }
-}
+    }

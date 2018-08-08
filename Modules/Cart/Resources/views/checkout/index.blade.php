@@ -13,19 +13,17 @@
 					<h5 class="mtext-108 cl2 p-b-7">
 						{{__('views.shop.account_info_adress')}}
 					</h5>
-
 					<p class="stext-102 cl6">
 						Adres Bilgileriniz ürünleri göndermemiz için gereklidir.
 					</p>
-
 					<div class="col-12 p-b-5">
 						<label class="stext-102 cl3" for="city">Adres İsmi</label>
-						<select class=" size-111 bor8 stext-102 cl2 p-lr-20" name="adress_id" id="adress">
-							@if($user->account)
-								<option value="{{$user->account->id}}">{{$user->account->account_name}}</option>
-							@else
-								<option value="">Adres Yaratın</option>
-							@endif
+						<select class=" size-111 bor8 stext-102 cl2 p-lr-20" name="adress_id" id="account_name">
+							<option value="">Bir Adres Seçin</option>
+
+							@foreach($user->accounts as $adress)
+								<option value="{{$adress->id}}">{{$adress->account_name}}</option>
+							@endforeach
 						</select>
 					</div>
 
@@ -33,49 +31,45 @@
 					<div class="row p-b-25 mt-3">
 						<div class="col-sm-6 p-b-5">
 							<label class="stext-102 cl3" for="name">İsim</label>
-							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="name" type="text" name="name" value="{{$user->account->first_name}}">
+							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="name" type="text" name="name" value="" readonly>
 						</div>
 
 						<div class="col-sm-6 p-b-5">
 							<label class="stext-102 cl3" for="lastname">Soyisim</label>
-							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="lastname" type="text" name="lastname" value="{{$user->account->last_name}}">
+							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="lastname" type="text" name="lastname" value="" readonly>
 						</div>
 
 						<div class="col-12 p-b-5">
 							<label class="stext-102 cl3" for="email">Email</label>
-							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="email" type="text" name="email" value="{{$user->account->email}}">
+							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="email" type="text" name="email" value="" readonly>
 
 						</div>
 
 						<div class="col-12 p-b-5">
 							<label class="stext-102 cl3" for="city">Şehir</label>
-							<select class=" size-111 bor8 stext-102 cl2 p-lr-20" name="city" id="city">
-								@if($user->account->city)
-									<option value="{{$user->account->city}}">{{$user->account->city}}</option>
-								@else
-									<option value="">Şehir Seçin</option>
-								@endif
+							<select class=" size-111 bor8 stext-102 cl2 p-lr-20" name="city" id="city" readonly>
+								<option value="">Şehir Seçin</option>
 							</select>
 							<input class="size-111 bor8 stext-102 cl2 p-lr-20"  type="text" name="country" value="Türkiye" hidden>
 
 						</div>
 						<div class="col-12 p-b-5">
 							<label class="stext-102 cl3" for="adress">Adres</label>
-							<textarea class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10" id="adress" name="adress">{{$user->account->adress}}</textarea>
+							<textarea class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10" id="adress" name="adress" readonly></textarea>
 						</div>
 
 						<div class="col-6 p-b-5">
 							<label class="stext-102 cl3" for="zip_code">Posta Kodu</label>
-							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="zip_code" type="text" name="zip_code" value="{{$user->account->zip_code}}">
+							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="zip_code" type="text" name="zip_code" value="" readonly>
 						</div>
 						<div class="col-6 p-b-5">
 							<label class="stext-102 cl3" for="phone">Telefon Numarası</label>
-							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="phone" type="text" name="phone" value="{{$user->account->phone_number}}">
+							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="phone" type="text" name="phone" value="" readonly>
 						</div>
 
 						<div class="col-6 p-b-5">
 							<label class="stext-102 cl3" for="id_number">TC Kimlik No</label>
-							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="id_number" type="text" name="id_number" value="{{$user->account->id_number}}">
+							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="id_number" type="text" name="id_number" value="" readonly>
 						</div>
 					</div>
 				</div>
@@ -220,6 +214,8 @@
 					})
 				});
 			</script>
+			@include('shop::partials._account_city_javascript')
+
 			<!--===============================================================================================-->
 			<script src="{{asset('modules/shop/js/main.js')}}"></script>
 

@@ -31,7 +31,7 @@
               </div>
             </div>
             <!-- Add review -->
-            {!! Form::open(['route'=>['account.store'],'data-parsley-validate' => '','class' => 'w-full' ]) !!}
+            {!! Form::open(['route'=>['account.update'],'data-parsley-validate' => '','class' => 'w-full' ]) !!}
             <h5 class="mtext-108 cl2 p-b-7">
               {{__('views.shop.account_info_adress')}}
             </h5>
@@ -48,6 +48,13 @@
                 @endforeach
                 </select>
               </div>
+
+              <div class="col-sm-12 p-b-5">
+                <label class="stext-102 cl3" for="account_name_change">Adres İsmini Değiştirin</label>
+                <input class="size-111 bor8 stext-102 cl2 p-lr-20" id="account_name_change" type="text" name="account_name_change" value="">
+              </div>
+
+
               <div class="col-sm-6 p-b-5">
                 <label class="stext-102 cl3" for="name">İsim</label>
                 <input class="size-111 bor8 stext-102 cl2 p-lr-20" id="name" type="text" name="name" value="">
@@ -63,8 +70,8 @@
                 <input class="size-111 bor8 stext-102 cl2 p-lr-20" id="email" type="text" name="email" value="">
               </div>
 
-              <div class="col-12 p-b-5">
-                <label class="stext-102 cl3" for="city">Şehir</label>
+              <div class="col-12 p-b-5 citydiv">
+                <label class="stext-102 cl3"  for="city">Şehir</label>
                 <select class=" size-111 bor8 stext-102 cl2 p-lr-20" name="city" id="city">
                   <option value="">Şehir Seçin</option>
                 </select>
@@ -116,6 +123,7 @@
     <script type="text/javascript">
       $('.select2').select2();
 
+
       var select_city = $('#city');
       $.ajax({
         dataType:'json',
@@ -125,7 +133,7 @@
         success: function(cities) {
           $.each(cities,function(i,city) {
             var $city_name = city.name;
-            select_city.append('<option value="' +$city_name + ' ">' +  $city_name +' </option>')
+            select_city.append('<option value="' +$city_name + '">' +  $city_name +' </option>')
           });
         }
       });
@@ -137,8 +145,16 @@
           type:'get',
           url:'{{url('api/adresses')}}' + '/' + $account_id,
           data:'',
-          success: function(response) {
-            console.log(response);
+          success: function(adress) {
+            $('#account_name_change').val(adress.account_name);
+            $('#name').val(adress.first_name);
+            $('#lastname').val(adress.last_name);
+            $('#email').val(adress.email);
+            $('#adress').html(adress.adress);
+            $("#city option[value=" + adress.city + "]").attr('selected', 'selected');
+            $('#id_number').val(adress.id_number);
+            $('#phone').val(adress.phone_number);
+            $('#zip_code').val(adress.zip_code);
           }
             });
         });

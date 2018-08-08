@@ -17,6 +17,7 @@ class CretaTableOnlineOrders extends Migration
           $table->increments('id');
           $table->bigInteger('basketId');
           $table->integer('product_sale_id')->unsigned();
+          $table->integer('sale_package_id')->unsigned();
           $table->integer('customer_id')->unsigned();
           $table->integer('adress_id')->unsigned();
           $table->string('status');

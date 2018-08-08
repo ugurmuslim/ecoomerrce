@@ -91,6 +91,26 @@ class AccountController extends Controller
   */
   public function update(Request $request)
   {
+    $request->validate(array(
+      'name' => 'required|max:15',
+      'lastname' => 'required|max:20',
+    ));
+    $account = Accountinfo::find($request->account_name);
+    $account->account_name = $request->account_name_change;
+    $account->first_name = $request->name;
+    $account->last_name = $request->lastname;
+    $account->email = $request->email;
+    $account->adress = $request->adress;
+    $account->country = $request->country;
+    $account->city = $request->city;
+    $account->phone_number = $request->phone;
+    $account->zip_code = $request->zip_code;
+    $account->id_number = $request->id_number;
+    $account->save();
+    $request->session()
+    ->flash('success',"Tebrikler. Bilgileirniz Değiştirildi.");
+    return redirect()->back();
+
   }
 
   /**
@@ -100,4 +120,35 @@ class AccountController extends Controller
   public function destroy()
   {
   }
+
+  public function passwordEdit()
+  {
+    return view('account::information.password');
+  }
+
+
+  public function passwordUpdate(Request $request)
+  {
+    $request->validate(array(
+      'old_password' => 'required',
+      'new_password' => 'required',
+      'new_password_confirm' => 'required',
+    ));
+    $user = User::find(Auth::user()->id);
+    $old_password = $request->old_password;
+    if($user->checkPassword($old_password)) {
+      $user->password = bcrypt($request['new_password']);
+      $user->save();
+      $request->session()
+      ->flash('success',"Tebrikler. Bilgileirniz Değiştirildi.");
+      return redirect()->back();
+    }
+    $request->session()
+    ->flash('error',"Eski Şifrenizi doğru girmediniz.");
+    return redirect()->back();
+
+
+
+  }
+
 }

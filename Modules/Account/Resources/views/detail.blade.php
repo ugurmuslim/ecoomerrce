@@ -22,7 +22,7 @@
             <ul class="with-bullets">
               <li class="with-bullets mt-3"><a href="{{route('account.create')}}"><h6>Yeni Adres Bilgisi Yarat</h6></a></li>
               <li class="with-bullets mt-3"><a href="{{route('account.edit')}}">Adres Bilgilerini Değiştir</a></li>
-              <li class="with-bullets mt-3"><a href="{{route('account.create')}}">Şifre Değiştir</a></li>
+              <li class="with-bullets mt-3"><a href="{{route('account.password')}}">Şifre Değiştir</a></li>
             </ul>
           </div>
         </div>

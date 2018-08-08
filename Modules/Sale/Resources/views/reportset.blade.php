@@ -4,7 +4,9 @@
 
   <div class="row">
     <div class="col-md-12">
-      {!! Form::open(['route'=>['sales.report']]) !!}
+
+      <form class="" action="{{route('sales.report')}}" method="get">
+
       <div class="btn-group" data-toggle="buttons">
         <label class="btn btn-primary active">
           <input type="radio" name="options" id="option1" autocomplete="off" checked value="D"> Günlük
@@ -23,7 +25,15 @@
       </div>
 
       <div class="form-spacing-top">
-        <input type="checkbox" name="product_report" ><strong class="ml-3"> Ürün Bazında Rapor</strong>
+        <input type="checkbox" name="product_report" ><strong class="ml-3">&nbspÜrün Bazında Rapor</strong>
+      </div>
+
+      <div class="form-spacing-top">
+        <input type="checkbox" name="online_report" value="5" ><strong class="ml-3">&nbspSite Siparişleri</strong>
+      </div>
+
+      <div class="form-spacing-top">
+        <input type="checkbox" name="unfinished_online"><strong class="ml-3">&nbspTamamlanmayan Site Siparişleri</strong>
       </div>
 
       {{Form::submit('Satış Raporu',['class' => 'btn btn-success  form-spacing-top']) }}

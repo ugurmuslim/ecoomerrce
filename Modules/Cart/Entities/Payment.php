@@ -5,6 +5,7 @@ namespace Modules\Cart\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Product\Entities\Product;
 use Modules\Sale\Entities\Productsale;
+use Modules\Account\Entities\Accountinfo as Account;
 use Modules\Cart\Entities\Onlineorder;
 use Cart;
 use Session;
@@ -49,7 +50,7 @@ class Payment extends Model
     $user = User::find(Auth::user()->id);
     Session::flash('adress', $request->adress_id);
     $products =  $request->product_id;
-
+    $account = Account::find($request->adress_id);
     $request = new \Iyzipay\Request\CreateCheckoutFormInitializeRequest();
     $request->setLocale(\Iyzipay\Model\Locale::TR);
     $request->setConversationId("123456789");
@@ -62,18 +63,18 @@ class Payment extends Model
     $request->setEnabledInstallments(array(2, 3, 6, 9));
     $buyer = new \Iyzipay\Model\Buyer();
     $buyer->setId("232323232");
-    $buyer->setName($user->account->first_name);
-    $buyer->setSurname($user->account->last_name);
-    $buyer->setGsmNumber("+9" . $user->account->last_name);
-    $buyer->setEmail($user->account->email);
-    $buyer->setIdentityNumber($user->account->id_number);
+    $buyer->setName($account->first_name);
+    $buyer->setSurname($account->last_name);
+    $buyer->setGsmNumber("+9" . $account->phone_number);
+    $buyer->setEmail($account->email);
+    $buyer->setIdentityNumber($account->id_number);
     $buyer->setLastLoginDate(Carbon::now()->toDateTimeString());
     $buyer->setRegistrationDate($user->created_at->toDateTimeString());
-    $buyer->setRegistrationAddress($user->account->adress);
+    $buyer->setRegistrationAddress($account->adress);
     $buyer->setIp("85.34.78.112");
-    $buyer->setCity($user->account->city);
+    $buyer->setCity($account->city);
     $buyer->setCountry("Turkey");
-    $buyer->setZipCode($user->account->zip_code);
+    $buyer->setZipCode($account->zip_code);
     $request->setBuyer($buyer);
     $shippingAddress = new \Iyzipay\Model\Address();
     $shippingAddress->setContactName($contact_name);
@@ -132,8 +133,9 @@ class Payment extends Model
         $product_sale->size_id =  $row->options->size['size_id'];
         $product_sale->color_id = $row->options->color['color_id'];
         $product_sale->sale_quantity = $row->qty;
+        $product_sale->category_id = $product->category_id;
         $product_sale->sale_price = $row->price * $row->qty;
-        $product_sale->statu = 0;
+        $product_sale->statu = 1;
         $product_sale->campaign_id = null;
         $product_sale->payment_id = 2;
         $product_sale->created_at = Carbon::now();
@@ -147,7 +149,7 @@ class Payment extends Model
         ->decrement('stock',$row->qty);
         $online_order = new OnlineOrder;
         $adress_id = Session::get('adress');
-        $online_order->createOrder($checkoutForm,$adress_id,$product_sale->id);
+        $online_order->createOrder($checkoutForm,$adress_id,$product_sale);
         Cart::destroy();
 
       }

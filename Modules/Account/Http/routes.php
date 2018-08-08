@@ -7,6 +7,9 @@ Route::group(['middleware' => 'web', 'prefix' => 'account', 'namespace' => 'Modu
   Route::get('/edit', 'AccountController@edit')->name('account.edit');
   Route::post('/', 'AccountController@store')->name('account.store');
   Route::get('/detail', 'AccountController@detail')->name('account.details');
+  Route::post('/update', 'AccountController@update')->name('account.update');
+  Route::get('/password', 'AccountController@passwordEdit')->name('account.password');
+  Route::post('/password-update', 'AccountController@passwordUpdate')->name('account.password_update');
 });
 
 

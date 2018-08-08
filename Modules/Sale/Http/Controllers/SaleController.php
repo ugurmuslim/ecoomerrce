@@ -4,6 +4,7 @@ namespace Modules\Sale\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Modules\Stock\Entities\Stockentry;
+use Modules\Account\Entities\Accountinfo;
 use Modules\Sale\Entities\Productsale;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -21,19 +22,38 @@ class SaleController extends Controller
   }
 
   public function report(Request $request) {
-
     $sale = new Productsale;
     $date_first = $request->datefirst;
     $date_last = $request->datelast;
     $time_set = $sale->setReportTime($request);
-    $sales = Productsale::whereDate('created_at','>=',$time_set[0])
-    ->whereDate('created_at','>=',$time_set[1])
-    ->get();
+    $sales = Productsale::whereDate('created_at','>=',"$time_set[0]")
+    ->whereDate('created_at','<=',"$time_set[1]")
+    ->when($request->online_report, function($query) use ($request){
+              return $query->where('sale_id',$request->online_report);
+          })
+          ->when($request->unfinished_online, function($query) use ($request){
+                    return $query->where('statu','!=',3);
+                })
+    ->orderBy('id','desc')
+    ->paginate(20);
 
     $view = 'sale::report';
+
     if($request->product_report !== null) {
       $view = 'sale::reportproduct';
     }
+
+    if($request->online_report !== null) {
+      $view = 'sale::reportonline';
+    }
+
     return view($view)->withSales($sales);
+  }
+
+  public function show($package_id) {
+  $sale_package =  Productsale::where('sale_package',$package_id)->get();
+  $adress = Accountinfo::find($sale_package[0]->onlineOrders()->first()->adress_id)->first();
+  return view('sale::show')->with('sale_package',$sale_package)
+  ->with('adress',$adress);
   }
 }

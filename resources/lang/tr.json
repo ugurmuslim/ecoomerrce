@@ -234,6 +234,7 @@
   "views.shop.shipping" : "Teslimat",
   "views.shop.cart_total" : "Toplam",
   "views.shop.account_info_adress" : "Adres Bilgileri",
+  "views.shop.account_info_password" : "Şifre Bilgileri",
   "views.shop_product" : "Ürün",
   "views.shop_price" : "Fiyat",
   "views.shop_quantity" : "Adet",

@@ -41,7 +41,7 @@
       @foreach($product->images as $image)
         <div class="col-md-3">
           <div class="col-md-5">
-            <img src="{{asset('images/products/' . $image->name)}}" style="width:150px;"alt="">
+            <img src="{{asset('images/products/' . $image->name)}}" style="width:150px; height: 205px;"alt="">
           </div>
           <div class="col-md-3">
             <a href="{{route('images.delete',['filename'=>$image->name,'foldername'=>'products'])}}" class="btn btn-danger">Sil</a>

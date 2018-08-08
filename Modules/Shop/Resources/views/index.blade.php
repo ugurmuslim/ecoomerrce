@@ -19,13 +19,14 @@
 						<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
 							<!-- Block2 -->
 							<div class="block2">
+								<a href="{{route('categories.products',$category->slug)}}">
 								<div class="block2-pic hov-img0">
 									<img src="{{asset('images/categories/' . $category->image()->where('type',2)->first()->name)}}" style="width:255px; height:315px;" alt="{{$category->slug}}">
-
 									<a href="{{route('categories.products',$category->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+
 										{{ $category->name}}
-									</a>
 								</div>
+							</a>
 							</div>
 						</div>
 					@endif

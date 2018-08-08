@@ -20,9 +20,11 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-
+      if(!Auth::user()){
+        return redirect()->back()->withError('Önce Kayıt olun veya giriş yapın');
+      }
         $user = User::find(Auth::user()->id);
-        if(!$user->account) {
+        if(!$user->accounts) {
           return redirect()->route('account.create')->withError("Adres Bilgilerinizin olması Gerekli");
         }
         return view('cart::checkout.index')->withUser($user);
@@ -52,15 +54,11 @@ class CheckoutController extends Controller
     }
     public function create(Request $request)
     {
-      if(!Auth::user()){
-        return redirect()->back()->withError('Önce Kayıt olun veya giriş yapın');
-      }
+
       $user = User::find(Auth::user()->id);
-      if($user->account->adress == null) {
-        return view('accounts.create')->withError("Önce Adres Bilgilerini Doldurun");
-      }
       $shopPay = new Payment();
        $a = $shopPay->iyizipay($request);
+       
       $payment_form = '<div id="iyzipay-checkout-form" class="popup"></div>';
       return view('cart::checkout.payment')->withPaymentform($payment_form);
     }
