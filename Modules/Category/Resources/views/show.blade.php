@@ -2,32 +2,30 @@
 @section('title', __('views.admin.users.index.title'))
 
 @section('content')
-
-  <div class="row ml-5">
-    <input class="barcode-dimensions ml-5" id="barcode-font" type="text" name="" value="15">Yazı Büyüklüğü</input>
-    <input class="barcode-dimensions ml-5" type="checkbox" id="price" checked>Fiyat Gösterilsin mi?</input>
-  </div>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8  col-md-offset-2">
       <div class="well text-center">
         <h1><strong>{{$category->name}}</strong></h1>
         <h4>Alt Numara : {{ $category->number_low }}</h4>
         <h4>Üst Numara: {{ $category->number_high}}</h4>
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
-            <a href="{{route('categories.edit',$category->slug)}}" class="btn btn-sm btn-primary">Değiştir</a>
-            @if($category->deleted !== 1)
-              {!! Form::open(['route'=>['categories.destroy',$category->slug],'method'=>'DELETE']) !!}
-              {!! Form::submit('Sil',['class'=>'btn btn-danger btn-sm mt-3']) !!}
-              {!! Form::close() !!}
-            @else
-              {!! Form::open(['route'=>['products.resurrect',$category->slug]]) !!}
-              {!! Form::submit('Silmeyi Geri Al',['class'=>'btn btn-danger btn-sm mt-3']) !!}
-              {!! Form::close() !!}
-            @endif
-
-
-          </div>
+            <a href="#myModal-{{$category->id}}" data-toggle="modal" class="btn btn-sm btn-danger">Sil</a>
+                  <div class="modal fade form-spacing-top" id="myModal-{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <div class="modal-body text-center">
+                          <h4> Silmek istediğinize emin misiniz? Bütün bilgiler gidecektir.</h4>
+                          <div class="form-spacing-top">
+                            {!! Form::open(['route'=>['categories.destroy',$category->slug],'method'=>'DELETE']) !!}
+                            {!! Form::submit('Sil',['class'=>'btn btn-danger btn-sm mt-3']) !!}
+                            {!! Form::close() !!}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
         </div>
       </div>

@@ -131,7 +131,13 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy($slug)
     {
+      $category = Category::where('slug',$slug)->first();
+      $category->delete();
+      $request->session()
+      ->flash('success',"Kategori $category->name Başarı ile Silindi");
+      return redirect()->back();
+
     }
 }

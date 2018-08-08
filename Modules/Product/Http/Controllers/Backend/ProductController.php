@@ -163,7 +163,7 @@ public function fileDestroy(Request $request)
   public function searchResult(Request $request)
       {
 
-        $query = $request->input('query');
+        $query = $request->input('search');
         $products = Product::where('name','like',"%$query%")->get();
         return view('shop::search-results')->withProducts($products)
         ->withQuery($query);

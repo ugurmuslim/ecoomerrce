@@ -4,7 +4,7 @@ Route::group(['middleware' => ['web','admin'], 'prefix' => 'sale', 'namespace' =
 {
     Route::get('/reportset', 'SaleController@reportset')->name('sales.reportset');
     Route::get('/report','SaleController@report')->name('sales.report');
-    Route::get('/{id}','SaleController@show')->name('sales.show');
+    Route::get('/show/{id}','SaleController@show')->name('sales.show');
     Route::get('/create', 'ProductsaleController@create')->name('sales.create');
     Route::post('/', 'ProductsaleController@store')->name('sales.store');
     Route::get('/return', 'ProductsaleController@return')->name('sales.return');

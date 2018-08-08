@@ -40,6 +40,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 [ FONT ]*/
 /* TL Simgesi */
 
+.category-name {
+  display:none;
+}
+
+
 .product-detail-photos {
   width: 510px;
   height: 630px;
@@ -232,6 +237,10 @@ ul.with-bullets ,li.with-bullets {
   width: 255px;
   height: 310px;
 
+}
+
+.category-name {
+  display:block !important;
 }
 }
 

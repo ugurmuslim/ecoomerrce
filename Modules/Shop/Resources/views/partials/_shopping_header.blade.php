@@ -71,7 +71,7 @@
 <div class="wrap-header-mobile">
   <!-- Logo moblie -->
   <div class="logo-mobile">
-    <a href="index.html"><h3>BehiceSglm</a>
+    <a href="{{route('shop.index')}}"><h3>BehiceSglm</a>
   </div>
 
   <!-- Icon header -->
@@ -132,7 +132,7 @@
 
   <ul class="main-menu-m">
     <li>
-      <a href="index.html">{{__('views.shop.menu_home')}}</a>
+      <a href="{{route('shop.index')}}">{{__('views.shop.menu_home')}}</a>
     </li>
 
     <li>
