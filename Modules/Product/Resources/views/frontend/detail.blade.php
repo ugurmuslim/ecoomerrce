@@ -39,19 +39,18 @@
 								<div class="wrap-slick3-dots"></div>
 								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 								<div class="slick3 gallery-lb">
-									<div class="item-slick3" data-thumb="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}">
+									<div class="item-slick3" data-thumb="{{asset('images/products/' . $product->images()->mainImage()->name)}}">
 										<div class="wrap-pic-w pos-relative">
-											<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" style="width:510px; height:630px;"alt="IMG-PRODUCT">
-
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+											<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" class="product-detail-photos" alt="IMG-PRODUCT">
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}">
 												<i class="fa fa-expand"></i>
 											</a>
 										</div>
 									</div>
-									@foreach($product->images()->featuredImages(1) as $image)
+									@foreach($product->images()->featuredImages() as $image)
 										<div class="item-slick3" data-thumb="{{asset('images/products/' . $image->name)}}">
 											<div class="wrap-pic-w pos-relative">
-												<img src="{{asset('images/products/' . $image->name)}}" alt="IMG-PRODUCT">
+												<img src="{{asset('images/products/' . $image->name)}}" class="product-detail-photos" alt="IMG-PRODUCT">
 
 												<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
 													<i class="fa fa-expand"></i>

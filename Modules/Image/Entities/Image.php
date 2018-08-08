@@ -9,15 +9,13 @@ class Image extends Model
     protected $fillable = [];
 
 
-public function scopeMainImage($query,$type_id){
+public function scopeMainImage($query){
 
-  return $query->where('main',true)
-  ->where('type',$type_id)->first();
+  return $query->where('main',true)->first();
 }
 
-public function scopeFeaturedImages($query,$type_id){
+public function scopeFeaturedImages($query){
 
-  return $query->where('main',false)
-  ->where('type',$type_id)->get();
+  return $query->where('main',false)->get();
 }
 }

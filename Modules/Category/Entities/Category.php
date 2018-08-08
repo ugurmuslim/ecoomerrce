@@ -20,7 +20,7 @@ class Category extends Model
 
 
     public function image() {
-      return  $this->hasOne('Modules\Image\Entities\Image','type_id');
+      return  $this->hasOne('Modules\Image\Entities\Image','type_id')->where('type',2);
     }
 
     public function products() {

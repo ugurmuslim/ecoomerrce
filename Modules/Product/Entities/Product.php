@@ -20,7 +20,7 @@ class Product extends Model
   }
 
   public function images() {
-    return  $this->hasMany('Modules\Image\Entities\Image','type_id');
+    return  $this->hasMany('Modules\Image\Entities\Image','type_id')->where('type',1);
   }
 
   public function sizes() {
