@@ -19,6 +19,27 @@
             @else
               <a href="{{route('sales.delivery',['sale_package'=>$sale_package[0]->sale_package,'statu' => 1])}}" class="btn btn-sm btn-danger">Kargoyu Geri Al</a>
             @endif
+            <a href="#myModal" data-toggle="modal" class="btn btn-sm btn-danger">Kargo Maili Gönder</a>
+                  <div class="modal fade form-spacing-top" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <div class="modal-body text-center">
+                          <h4> Kargo Nosunu Girin.</h4>
+                          <div class="form-spacing-top">
+                            {!! Form::open(['route'=>['sales.deliveryMail',$adress]]) !!}
+
+                            {{ Form::label('shipping_number','Kargo No :',['class'=>'form-spacing-top']) }}
+                            {{ Form::text('shipping_number',null,['class'=>'form-control name','required' => ''])}}
+
+                            {!! Form::submit('Gönder',['class'=>'btn btn-danger btn-sm mt-3']) !!}
+                            {!! Form::close() !!}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
             @if($sale_package[0]->statu == 3)
               <a href="{{route('sales.delivery',['sale_package'=>$sale_package[0]->sale_package,'statu' => 2])}}" class="btn btn-sm btn-danger">Tammamlamayı Geri Al</a>
             @else

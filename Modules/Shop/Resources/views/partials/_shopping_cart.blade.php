@@ -20,9 +20,10 @@
           $product = Modules\Product\Entities\Product::find($row->id);
 
         @endphp
-      <li class="header-cart-item flex-w flex-t m-b-12">
+      <li class="header-cart-item flex-w flex-t m-b-15">
+
         <div class="header-cart-item-img">
-          <img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" alt="IMG">
+          <img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" data-id="{{$row->rowId}}" alt="IMG">
         </div>
 
         <div class="header-cart-item-txt p-t-8">
@@ -41,6 +42,7 @@
           <span class="header-cart-item-info">
             {{$row->options->color['color_name']}}
           </span>
+
         </div>
       </li>
     @endforeach

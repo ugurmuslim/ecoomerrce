@@ -49,13 +49,13 @@
 					@include('shop::partials._products_filter')
 					<div class="row isotope-grid">
 						@foreach($products as $product)
-							@if($product->images()->mainImage(1)->first())
+							@if($product->images()->mainImage()->first())
 
 								<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category->name}}">
 									<!-- Block2 -->
 									<div class="block2">
 										<div class="block2-pic hov-img0">
-											<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" style="width:255px; height:315px;" alt="{{$product->slug}}">
+											<img src="{{asset('images/products/' . $product->images()->mainImage()->name)}}" style="width:255px; height:315px;" alt="{{$product->slug}}">
 
 											<a href="{{route('product.shop-detail',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
 												{{__('views.shop.products_quickview')}}

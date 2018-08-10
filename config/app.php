@@ -177,6 +177,7 @@ return [
   Illuminate\View\ViewServiceProvider::class,
   Milon\Barcode\BarcodeServiceProvider::class,
   Intervention\Image\ImageServiceProvider::class,
+  Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider::class,
   /*
   * Package Service Providers...
   */

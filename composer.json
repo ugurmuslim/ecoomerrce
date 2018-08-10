@@ -25,6 +25,7 @@
         "arcanedev/log-viewer": "~4.0",
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "fedeisas/laravel-mail-css-inliner": "^2.2",
         "gloudemans/shoppingcart": "^2.5",
         "intervention/image": "^2.4",
         "iyzico/iyzipay-php": "^2.0",

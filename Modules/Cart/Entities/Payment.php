@@ -7,11 +7,14 @@ use Modules\Product\Entities\Product;
 use Modules\Sale\Entities\Productsale;
 use Modules\Account\Entities\Accountinfo as Account;
 use Modules\Cart\Entities\Onlineorder;
+use Modules\Cart\Emails\SendSaleSuccess;
 use Cart;
 use Session;
 use Auth;
 use Carbon\Carbon;
 use Config;
+use Mail;
+
 use App\Models\Auth\User\User;
 
 class Payment extends Model
@@ -151,8 +154,8 @@ class Payment extends Model
         $adress_id = Session::get('adress');
         $online_order->createOrder($checkoutForm,$adress_id,$product_sale);
         Cart::destroy();
-
       }
+      Mail::to(Auth::user())->send(new SendSaleSuccess($sale_package,$adress_id));
 
       Session::flash('success','Ödemeniz Alındı');
       break;
@@ -160,7 +163,6 @@ class Payment extends Model
       $online_order = new OnlineOrder;
       $adress_id = Session::get('adress');
       $online_order->createOrder($checkoutForm,$adress_id,$product_sale->id);
-
       Session::flash('error','Ödeme alınamadı, Tekrar deneyin.');
       break;
     }

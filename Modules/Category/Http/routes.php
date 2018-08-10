@@ -12,7 +12,7 @@ Route::group(['middleware' => ['web','admin'], 'prefix' => 'categories', 'namesp
 });
 
 
-Route::group(['middleware' => ['web','admin'], 'prefix' => 'categories', 'namespace' => 'Modules\Category\Http\Controllers\Frontend'], function()
+Route::group(['middleware' => ['web'], 'prefix' => 'categories', 'namespace' => 'Modules\Category\Http\Controllers\Frontend'], function()
 {
   Route::get('/products/{slug}', 'CategoryController@product')->name('categories.products');
 });

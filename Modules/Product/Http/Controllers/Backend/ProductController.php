@@ -22,7 +22,7 @@ class ProductController extends Controller
   */
   public function index()
   {
-    $products = Product::orderBy('product_id','ASC')->paginate(10);
+    $products = Product::where('deleted','!=',1)->orderBy('product_id','ASC')->paginate(10);
     return view('product::index')->withProducts($products);
   }
 
@@ -133,9 +133,20 @@ public function update(Request $request)
 * Remove the specified resource from storage.
 * @return Response
 */
-public function destroy()
+public function destroy($slug)
 {
+    $product = Product::where('slug',$slug)->first();
+    $product->update(['deleted'=>1]);
+    return back();
 }
+
+public function resurrect($slug)
+{
+    $product = Product::where('slug',$slug)->first();
+    $product->update(['deleted'=>0]);
+    return back();
+}
+
 
 
 public function imageUpload(Request $request)

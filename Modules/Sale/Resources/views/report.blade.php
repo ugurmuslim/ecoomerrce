@@ -62,7 +62,7 @@
               <th class="phone_not_display">{{ $detail->product->category->name }}</th>
               <th>{{ $detail->sale_quantity }}</th>
               <th>{{ $detail->product->price }}</th>
-              <th>{{ $detail->sale_price }}</th>
+              <th>{{ $detail->sale_price }} <span class="simge-tl" >&#8378;</span></th>
               {{--  <th><a href="{{route('customers.show',$detail->customer_id)}}">{{ $detail->customer_name  }} </a></th>--}}
             </tr>
           </tr>

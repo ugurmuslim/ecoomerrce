@@ -14,10 +14,10 @@ class CategoryController extends Controller
     public function product($slug)
     {
         $category = Category::where('slug',$slug)->first();
-        $products = Product::where('category_id',$category->id)->orderBy('id','desc')->paginate(1);
+        $products = Product::where('category_id',$category->id)->orderBy('id','desc')->paginate(20);
         return view('category::frontend.products')->withProducts($products)
         ->withCategory($category);
     }
-  
+
 
 }

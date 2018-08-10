@@ -7,6 +7,9 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Category\Entities\Category;
 use Modules\Product\Entities\Product;
+use Modules\Cart\Emails\SendSaleSuccess;
+use Mail;
+use Auth;
 
 class ShopController extends Controller
 {

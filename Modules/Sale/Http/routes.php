@@ -2,6 +2,7 @@
 
 Route::group(['middleware' => ['web','admin'], 'prefix' => 'sale', 'namespace' => 'Modules\Sale\Http\Controllers'], function()
 {
+    Route::post('/sendMail/{adress}', 'SaleController@deliveryMail')->name('sales.deliveryMail');
     Route::get('/reportset', 'SaleController@reportset')->name('sales.reportset');
     Route::get('/report','SaleController@report')->name('sales.report');
     Route::get('/show/{id}','SaleController@show')->name('sales.show');

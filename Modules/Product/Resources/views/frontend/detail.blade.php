@@ -161,7 +161,6 @@
 								</div>
 							</div>
 						</div>
-
 						<!--  -->
 						{{--	<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 						<div class="flex-m bor9 p-r-10 m-r-11">
@@ -390,12 +389,12 @@
 			<div class="slick2">
 
 				@foreach($relatedproducts as $related_product)
-					@if($related_product->images()->first())
+					@if($product->images()->mainImage()->first())
 						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-pic hov-img0">
-									<img src="{{asset('images/' . $related_product->images()->first()->name)}}" style="width:255px; height:315px;"alt="IMG-PRODUCT">
+									<img src="{{asset('images/products/' . $related_product->images()->mainImage()->name)}}" style="width:255px; height:315px;"alt="IMG-PRODUCT">
 
 									<a href="{{route('product.shop-detail',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 										{{__('views.shop.products_quickview')}}
@@ -429,8 +428,6 @@
 			</div>
 		</div>
 	</section>
-
-
 	<!-- Footer -->
 	@include('shop::partials._footer')
 	<!-- Back to top -->

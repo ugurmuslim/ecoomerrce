@@ -8,6 +8,8 @@ use Modules\Account\Entities\Accountinfo;
 use Modules\Sale\Entities\Productsale;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Sale\Emails\OrderShipped;
+use Mail;
 
 class SaleController extends Controller
 {
@@ -29,11 +31,11 @@ class SaleController extends Controller
     $sales = Productsale::whereDate('created_at','>=',"$time_set[0]")
     ->whereDate('created_at','<=',"$time_set[1]")
     ->when($request->online_report, function($query) use ($request){
-              return $query->where('sale_id',$request->online_report);
-          })
-          ->when($request->unfinished_online, function($query) use ($request){
-                    return $query->where('statu','!=',3);
-                })
+      return $query->where('sale_id',$request->online_report);
+    })
+    ->when($request->unfinished_online, function($query) use ($request){
+      return $query->where('statu','!=',3);
+    })
     ->orderBy('id','desc')
     ->paginate(20);
 
@@ -51,12 +53,18 @@ class SaleController extends Controller
   }
 
   public function show($package_id) {
-  $sale_package =  Productsale::where('sale_package',$package_id)->get();
-  $adress = null;
-  if(count($sale_package[0]->onlineOrders()->get())>0) {
-  $adress = Accountinfo::find($sale_package[0]->onlineOrders()->first()->adress_id)->first();
+    $sale_package =  Productsale::where('sale_package',$package_id)->get();
+    $adress = null;
+    if(count($sale_package[0]->onlineOrders()->get())>0) {
+      $adress = Accountinfo::find($sale_package[0]->onlineOrders()->first()->adress_id)->first();
+    }
+    return view('sale::show')->with('sale_package',$sale_package)
+    ->with('adress',$adress);
   }
-  return view('sale::show')->with('sale_package',$sale_package)
-  ->with('adress',$adress);
+
+  public function deliveryMail(Request $request, $adress) {
+    $adress =  AccountInfo::find($adress);
+    Mail::to($adress)->send(new OrderShipped($request->shipping_number,$adress));
+    return back()->with('success','Mail Gönderildi');
   }
 }

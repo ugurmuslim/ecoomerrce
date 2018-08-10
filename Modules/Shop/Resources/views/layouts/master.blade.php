@@ -13,7 +13,7 @@
   @yield('content')
 
   @yield('shop_scripts')
-
+  @include('shop::partials._cart_panel_delete_javascript')
   {{-- Laravel Mix - JS File --}}
   {{-- <script src="{{ mix('js/shop.js') }}"></script> --}}
 </body>

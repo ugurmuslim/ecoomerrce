@@ -28,8 +28,6 @@
         </div>
       </div>
     </div>
-    <!-- Footer -->
-    @include('shop::partials._footer')
     <!-- Back to top -->
     <div class="btn-back-to-top" id="myBtn">
       <span class="symbol-btn-back-to-top">
