@@ -151,11 +151,16 @@
     visibility: hidden;
   }
 }
-@media screen and (max-width:459px) {
+
+@media screen and (max-width:550px) {
 
 .phone_not_display {
   display: none;
 }
+}
+
+@media screen and (max-width:459px) {
+
 
   .template {
     margin-left: -150px;
