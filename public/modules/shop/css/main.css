@@ -236,7 +236,6 @@ ul.with-bullets ,li.with-bullets {
   }
 .product-detail-photos {
   height: 350px;
-
 }
 
 .category-name {
@@ -1833,6 +1832,9 @@ button.mfp-close {
   .filter-col4 {width: 100%;}
 }
 
+footer {
+  text-align: center;
+}
 
 
 /*//////////////////////////////////////////////////////////////////

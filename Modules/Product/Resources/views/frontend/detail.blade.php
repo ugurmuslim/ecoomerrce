@@ -385,12 +385,10 @@
 		</div>
 
 		<!-- Slide2 -->
-		<div class="wrap-slick2">
-			<div class="slick2">
-
-				@foreach($relatedproducts as $related_product)
+		<div class="row isotope-grid">
+					@foreach($relatedproducts as $related_product)
 					@if($product->images()->mainImage()->first())
-						<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+						<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category->name}}">
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-pic hov-img0">
@@ -420,13 +418,12 @@
 											</a>
 										</div>--}}
 									</div>
+									</div>
 								</div>
-							</div>
 						@endif
 					@endforeach
 				</div>
 			</div>
-		</div>
 	</section>
 	<!-- Footer -->
 	@include('shop::partials._footer')
