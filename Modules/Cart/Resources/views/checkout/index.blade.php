@@ -1,5 +1,5 @@
 @extends('shop::layouts.master')
-@section('title','MAĞAZA RAPOR |')
+@section('title','SEPET GÖRÜNTÜLEME |')
 @section('content')
 	<body class="animsition">
 

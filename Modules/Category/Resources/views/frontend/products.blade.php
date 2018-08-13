@@ -1,5 +1,5 @@
 @extends('shop::layouts.master')
-@section('title','ÜRÜN |')
+@section('title','KATEGORİ ÜRÜNLER |')
 @section('content')
 	<body class="animsition">
 		<!-- Header -->
@@ -40,7 +40,7 @@
 									</div>
 								</div>
 							</div>
-						@endif	
+						@endif
 					@endforeach
 				</div>
 				{{ $products->links("pagination::bootstrap-4") }}

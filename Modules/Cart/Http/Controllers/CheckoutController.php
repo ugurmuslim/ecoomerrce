@@ -36,6 +36,7 @@ class CheckoutController extends Controller
      */
 
     public function checkoutRequest(Request $request) {
+
       $token = $request->token;
       $request = new \Iyzipay\Request\RetrieveCheckoutFormRequest();
       $request->setLocale(\Iyzipay\Model\Locale::TR);

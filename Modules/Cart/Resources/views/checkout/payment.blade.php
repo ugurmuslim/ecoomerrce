@@ -1,5 +1,5 @@
 @extends('shop::layouts.master')
-@section('title','MAĞAZA RAPOR |')
+@section('title','ÖDEME EKRANI |')
 @section('content')
 
 {!! $paymentform !!}

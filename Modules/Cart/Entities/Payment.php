@@ -8,6 +8,8 @@ use Modules\Sale\Entities\Productsale;
 use Modules\Account\Entities\Accountinfo as Account;
 use Modules\Cart\Entities\Onlineorder;
 use Modules\Cart\Emails\SendSaleSuccess;
+use Modules\Cart\Emails\AdminSaleSuccess;
+use App\Models\Auth\User\User;
 use Cart;
 use Session;
 use Auth;
@@ -15,7 +17,6 @@ use Carbon\Carbon;
 use Config;
 use Mail;
 
-use App\Models\Auth\User\User;
 
 class Payment extends Model
 
@@ -156,7 +157,7 @@ class Payment extends Model
         Cart::destroy();
       }
       Mail::to(Auth::user())->send(new SendSaleSuccess($sale_package,$adress_id));
-      Mail::to(User::where('email','ugur.muslim@gmail.com')->first())->send(new SendSaleSuccess($sale_package,$adress_id));
+      Mail::to(User::where('email','admin.laravel@labs64.com')->first())->send(new AdminSaleSuccess($sale_package,$adress_id));
 
       Session::flash('success','Ödemeniz Alındı');
       break;

@@ -1,5 +1,5 @@
 @extends('shop::layouts.master')
-@section('title','ÜRÜN |')
+@section('title','ADRES YARATMA |')
 @section('content')
   <body class="animsition">
 

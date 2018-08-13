@@ -6,8 +6,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Modules\Account\Entities\Accountinfo as Account;
+use Modules\Sale\Entities\Productsale;
 
-class Adminsalesuccess extends Mailable
+class AdminSaleSuccess extends Mailable
 {
     use Queueable, SerializesModels;
 

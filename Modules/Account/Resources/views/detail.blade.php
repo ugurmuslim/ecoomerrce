@@ -1,5 +1,5 @@
 @extends('shop::layouts.master')
-@section('title','ÜRÜN |')
+@section('title','HESAP DETAYI |')
 @section('content')
   <body class="animsition">
     <!-- Header -->

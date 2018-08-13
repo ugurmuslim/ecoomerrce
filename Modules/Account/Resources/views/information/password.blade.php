@@ -1,5 +1,5 @@
 @extends('shop::layouts.master')
-@section('title','ÜRÜN |')
+@section('title','ŞİFRE DEĞİŞTİRME |')
 @section('content')
   <body class="animsition">
     <!-- Header -->
