@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Auth\User\Traits\Ables\Rolable;
 use App\Models\Auth\User\Traits\Scopes\UserScopes;
 use App\Models\Auth\User\Traits\Relations\UserRelations;
+use App\Notifications\ResetPassword;
 use Kyslik\ColumnSortable\Sortable;
 use Hash;
 /**
@@ -100,6 +101,11 @@ class User extends Authenticatable
     }
     return false;
   }
+
+  public function sendPasswordResetNotification($token)
+   {
+       $this->notify(new ResetPassword($token));
+   }
 
 
 }
