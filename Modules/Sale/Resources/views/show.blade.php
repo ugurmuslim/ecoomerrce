@@ -14,7 +14,7 @@
       @endif
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
-            @if($sale_package[0]->statu == 1)
+            @if($sale_package[0]->statu == 1) 
               <a href="{{route('sales.delivery',['sale_package'=>$sale_package[0]->sale_package,'statu' => 2])}}" class="btn btn-sm btn-primary">Kargoya Ver</a>
             @else
               <a href="{{route('sales.delivery',['sale_package'=>$sale_package[0]->sale_package,'statu' => 1])}}" class="btn btn-sm btn-danger">Kargoyu Geri Al</a>
