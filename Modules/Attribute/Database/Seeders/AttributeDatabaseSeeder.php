@@ -16,6 +16,21 @@ class AttributeDatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+      Attribute::insert([
+        'attribute_human_id' => '99',
+        'attribute_id' => "1",
+        'attribute_short' => "R",
+        'attribute_long' => "Renk Yok",
+      ]);
+
+      Attribute::insert([
+        'attribute_human_id' => '98',
+        'attribute_id' => "2",
+        'attribute_short' => "B",
+        'attribute_long' => "Beden Yok",
+      ]);
+
       Attribute::insert([
         'attribute_human_id' => '10',
         'attribute_id' => "1",

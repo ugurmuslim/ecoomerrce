@@ -11,11 +11,17 @@
 
     <div class="container">
       <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-        <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+        <a href="{{route('shop.index')}}" class="stext-109 cl8 hov-cl1 trans-04">
           {{__('views.shop.menu_home')}}
           <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
         </a>
-
+        <a href="{{route('account.details')}}" class="stext-109 cl8 hov-cl1 trans-04">
+          {{__('views.shop.menu_account')}}
+          <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+        <a href="{{route('account.create')}}" class="stext-109 cl8 hov-cl1 trans-04">
+          {{__('views.shop.menu_adress_edit')}}
+        </a>
       </div>
       <div class="row">
         <div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">

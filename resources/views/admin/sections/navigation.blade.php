@@ -62,6 +62,12 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('products.action') }}">
+                                    {{ __('views.backend.section.navigation.product_action') }}
+                                </a>
+                            </li>
+
                         </ul>
                     </li>
                 </ul>

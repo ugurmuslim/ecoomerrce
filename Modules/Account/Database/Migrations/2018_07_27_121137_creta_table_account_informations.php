@@ -19,7 +19,6 @@ class CretaTableAccountInformations extends Migration
       $table->integer('user_id');
       $table->string('first_name');
       $table->string('last_name');
-      $table->string('email')->unique();;
       $table->text('adress')->nullable();
       $table->string('country')->nullable();
       $table->string('city')->nullable();

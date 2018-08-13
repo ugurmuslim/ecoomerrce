@@ -15,9 +15,16 @@
 
     <div class="container">
       <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-        <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+        <a href="{{route('shop.index')}}" class="stext-109 cl8 hov-cl1 trans-04">
           {{__('views.shop.menu_home')}}
           <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+        <a href="{{route('account.details')}}" class="stext-109 cl8 hov-cl1 trans-04">
+          {{__('views.shop.menu_account')}}
+          <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+        <a href="{{route('account.create')}}" class="stext-109 cl8 hov-cl1 trans-04">
+          {{__('views.shop.menu_adress_create')}}
         </a>
 
       </div>
@@ -56,11 +63,6 @@
               <div class="col-sm-6 p-b-5">
                 <label class="stext-102 cl3" for="lastname">Soyisim</label>
                 <input class="size-111 bor8 stext-102 cl2 p-lr-20" id="lastname" type="text" name="lastname" value="">
-              </div>
-
-              <div class="col-12 p-b-5">
-                <label class="stext-102 cl3" for="email">Email</label>
-                <input class="size-111 bor8 stext-102 cl2 p-lr-20" id="email" type="text" name="email" value="">
               </div>
 
               <div class="col-12 p-b-5">

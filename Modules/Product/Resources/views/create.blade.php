@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
 @section('styles')
   {{ Html::style(mix('assets/common/css/select2.min.css')) }}
-@section('title', __('views.admin.product.create.title'))
+  @section('title', __('views.admin.product.create.title'))
   @section('content')
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -31,14 +31,22 @@
             @endforeach
           </select>
 
+          <table class="table form-spacing-top">
+            <thead>
+              <tr>
+                <th>Beden</th>
+                <th>Renk</th>
+                <th>Miktar</th>
+              </tr>
+            </thead>
+            <tbody class="table_rows">
+              <td class="product_size"><input type="text" name="product_size_id['+$size_val+']" value ="Beden Yok" readonly></td>
+              <td class="product_size"><input type="text" name="product_color_id['+$size_val+']" value ="Renk Yok" readonly></td>
+              <td class="product_color"><input type="text" name="product_quantity['+$size_val+']" style="width:40px;" value ="0"readonly></input></td>
+              <td class="product_size"><input type="text" name="stock_attributes[2][1]" value = "0" hidden>
 
-          <div class="row mt-5">
-            <div class="col-md-12">
-              <input type="checkbox" name="size_track" class="size_track" value="1"  checked="checked">&nbspÜrünler Bedenle mi Takip Ediliyor?</input>
-            </div>
-          </div>
-
-          <input type="checkbox" name="variation" class="product_variation mt-5" value="1">&nbspÜrün Varyasyonlu mu?</input>
+            </tbody>
+          </table>
 
           {{--
           <div class="row mt-5 sizes">
@@ -60,7 +68,7 @@
   {{ Html::script(mix('assets/common/js/select2.min.js')) }}
   @parent
   <script type="text/javascript">
-  $('.select2').select2();
+    $('.select2').select2();
     $('.size_track').on('click',function(){
       console.log('asd')
     })
