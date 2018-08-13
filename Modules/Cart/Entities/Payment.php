@@ -37,7 +37,6 @@ class Payment extends Model
   }
 
   public function iyizipay($request) {
-
     $online_order = new Onlineorder;
     $basketId = 1;
     if(count($online_order->get())) {

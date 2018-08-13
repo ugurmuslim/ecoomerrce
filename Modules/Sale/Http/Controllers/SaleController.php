@@ -56,7 +56,7 @@ class SaleController extends Controller
     $sale_package =  Productsale::where('sale_package',$package_id)->get();
     $adress = null;
     if(count($sale_package[0]->onlineOrders()->get())>0) {
-      $adress = Accountinfo::find($sale_package[0]->onlineOrders()->first()->adress_id)->first();
+      $adress = Accountinfo::find($sale_package[0]->onlineOrders()->first()->adress_id);
     }
     return view('sale::show')->with('sale_package',$sale_package)
     ->with('adress',$adress);

@@ -59,7 +59,6 @@ class CheckoutController extends Controller
       $user = User::find(Auth::user()->id);
       $shopPay = new Payment();
        $a = $shopPay->iyizipay($request);
-
       $payment_form = '<div id="iyzipay-checkout-form" class="popup"></div>';
       return view('cart::checkout.payment')->withPaymentform($payment_form);
     }
