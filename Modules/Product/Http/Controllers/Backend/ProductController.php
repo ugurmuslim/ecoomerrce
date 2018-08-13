@@ -133,8 +133,11 @@ public function setAction(Request $request)
     }
     elseif($request->name == "Görüntüle") {
       return redirect()->route('products.show',$product->slug);
-    } else {
+    } elseif($request->name == "Stok Gir") {
       return redirect()->route('stockentry.instant',$product->slug);
+    }else {
+      return redirect()->route('stockentry.edit',$product->slug);
+
     }
     $request->session()
     ->flash('error','Böyle bir ürün yoktur');

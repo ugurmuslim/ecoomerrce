@@ -196,6 +196,7 @@
   "views.admin.admin.instant.entry": "Tanımlama/Stok Giriş",
   "views.admin.product.create.title": "Ürün Yarat",
   "views.admin.product.index.title": "Ürün Raporu",
+  "views.admin.product.product.action": "Ürün Aksiyon",
   "views.admin.categories.index.title": "Kategori Raporu",
   "views.admin.categoies.create.title" : "Kategori Yaratma",
   "views.admin.sale.create.title" : "Satış",
