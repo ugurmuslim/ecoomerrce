@@ -63,6 +63,7 @@ class SaleController extends Controller
   }
 
   public function deliveryMail(Request $request, $adress) {
+    dd('sd');
     $adress =  AccountInfo::find($adress);
     Mail::to(Auth::user())->send(new OrderShipped($request->shipping_number,$adress));
     return back()->with('success','Mail Gönderildi');
