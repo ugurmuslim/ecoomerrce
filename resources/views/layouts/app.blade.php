@@ -12,10 +12,10 @@
         @meta
 
         {{--Common App Styles--}}
-        
+
         {{ Html::style(mix('assets/app/css/app.css')) }}
         {{ Html::style(mix('assets/common/css/styles.css')) }}
-
+        {{ Html::style(mix('assets/common/css/parsley.css')) }}
         {{--Styles--}}
         @yield('styles')
 
@@ -30,6 +30,8 @@
 
         {{--Common Scripts--}}
         {{ Html::script(mix('assets/app/js/app.js')) }}
+        {{ Html::script(mix('assets/common/js/parsley.min.js')) }}
+        {{ Html::script(mix('assets/common/js/i18n/parsley-tr.js')) }}
 
         {{--Laravel Js Variables--}}
         @tojs

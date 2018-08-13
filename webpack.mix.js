@@ -109,7 +109,7 @@ mix.js([
 
 
  mix.styles([
-   'resources/assets/common/css/selest2.min.css',
+   'resources/assets/common/css/select2.min.css',
  ], 'public/assets/common/css/select2.min.css');
 
  mix.styles([
@@ -130,6 +130,10 @@ mix.js([
  mix.scripts([
    'resources/assets/common/js/parsley.min.js',
  ], 'public/assets/common/js/parsley.min.js');
+
+ mix.scripts([
+   'resources/assets/common/js/parsley-tr.js',
+ ], 'public/assets/common/js/i18n/parsley-tr.js');
 
 
  mix.scripts([

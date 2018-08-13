@@ -1,4 +1,6 @@
 @extends('shop::layouts.master')
+@section('shop_styles')
+	{{ Html::style(mix('assets/common/css/parsley.css')) }}
 @section('title','ÜRÜN |')
 @section('content')
 	<body class="animsition">
@@ -92,8 +94,8 @@
 
 									<div class="size-204 respon6-next">
 										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2 size" name="size">
-												<option>{{__('views.shop.shop_choose_size')}}</option>
+											<select class="js-select2 size" name="size" required>
+												<option  disabled selected value>{{__('views.shop.shop_choose_size')}}</option>
 												@php
 													$s = null;
 												@endphp
@@ -120,8 +122,8 @@
 
 									<div class="size-204 respon6-next">
 										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2 color" name="color">
-												<option>{{__('views.shop.shop_choose_color')}}</option>
+											<select class="js-select2 color" name="color" required>
+												<option  disabled selected value>{{__('views.shop.shop_choose_color')}}</option>
 												@php
 													$c = null;
 												@endphp
@@ -148,7 +150,7 @@
 											<i class="fs-16 zmdi zmdi-minus"></i>
 										</div>
 
-										<input class="mtext-104 cl3 txt-center num-product" type="number" name="quantity" value="1">
+										<input class="mtext-104 cl3 txt-center num-product" type="number" name="quantity" value="1" required>
 
 										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 											<i class="fs-16 zmdi zmdi-plus"></i>
@@ -589,8 +591,10 @@
 	--}}
 @endsection
 @section('shop_scripts')
-	@include('shop::partials._shopping_javascript')
 
+	@include('shop::partials._shopping_javascript')
+	{{ Html::script(mix('assets/common/js/parsley.min.js')) }}
+	{{ Html::script(mix('assets/common/js/i18n/parsley-tr.js')) }}
 	<script type="text/javascript">
 		var $size_select = $('.size');
 		var $color_select = $('.color');

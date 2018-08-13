@@ -7,7 +7,7 @@
         <div class="login_wrapper">
             <div class="animate form">
                 <section class="login_content">
-                    {{ Form::open(['route' => 'register']) }}
+                    {{ Form::open(['route' => ['register'],'data-parsley-validate' => '']) }}
                         <h1>{{ __('views.auth.register.header') }}</h1>
                         <div>
                             <input type="text" name="name" class="form-control"
@@ -22,12 +22,12 @@
                         <div>
                             <input type="password" name="password" class="form-control"
                                    placeholder="{{ __('views.auth.register.input_2') }}"
-                                   required=""/>
+                                   minlength="6" required=""/>
                         </div>
                         <div>
                             <input type="password" name="password_confirmation" class="form-control"
                                    placeholder="{{ __('views.auth.register.input_3') }}"
-                                   required/>
+                                   minlength="6" required/>
                         </div>
 
                         @if (session('status'))
