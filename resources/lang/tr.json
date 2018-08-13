@@ -1,7 +1,7 @@
 {
   "************************* Vendor *************************": "Vendor i18n",
-  "This action unauthorized.": "This action unauthorized.",
-  "Whoops, looks like something went wrong.": "Whoops, looks like something went wrong.",
+  "This action unauthorized.": "Yetkiniz Yok.",
+  "Whoops, looks like something went wrong.": "Birşeyler Ters Gitti",
   "************************** Auth **************************": "Auth i18n",
   "auth.failed": "Girdiğiniz Bilgilerden en az bir tanesi yanlış.",
   "auth.throttle": "Too many login attempts. Please try again in :seconds seconds.",
