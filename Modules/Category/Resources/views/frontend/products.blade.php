@@ -22,10 +22,8 @@
 								<!-- Block2 -->
 								<div class="block2">
 									<div class="block2-pic hov-img0">
+										<a href="{{route('product.shop-detail',$product->slug)}}">
 										<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" style="width:255px; height:315px;" alt="{{$product->slug}}">
-
-										<a href="{{route('shop.product-detail',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-											{{__('views.shop.products_quickview')}}
 										</a>
 									</div>
 
@@ -34,6 +32,7 @@
 											<a href="{{route('product.shop-detail',$product->slug)}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 												{{$product->name}}
 											</a>
+
 											<span class="stext-105 cl3">
 												<span class="simge-tl">&#8378;</span> {{$product->price}}
 											</span>
@@ -41,7 +40,7 @@
 									</div>
 								</div>
 							</div>
-						@endif
+						@endif	
 					@endforeach
 				</div>
 				{{ $products->links("pagination::bootstrap-4") }}

@@ -44,7 +44,7 @@
               <a href="{{route('shop.index')}}">{{__('views.shop.menu_home')}}</a>
             </li>
             <li>
-              <a href="#">{{__('views.shop.menu_contact')}}</a>
+              <a href="{{route('shop.contact')}}">{{__('views.shop.menu_contact')}}</a>
             </li>
           </ul>
         </div>
@@ -136,7 +136,7 @@
     </li>
 
     <li>
-      <a href="#">{{__('views.shop.menu_contact')}}</a>
+      <a href="{{route('shop.contact')}}">{{__('views.shop.menu_contact')}}</a>
     </li>
   </ul>
 </div>

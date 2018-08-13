@@ -245,7 +245,7 @@
   "views.buttons.proceed_to_checkout": "Ödemeye GİT",
   "views.shop_load_more" : "Daha Fazla",
   "views.shop_search" : "Ara",
-  "views.shop_filter" : "Filtre",
+  "views.shop_filter" : "Bütün Kategoriler",
   "**************************** Frontrnd Footer**********************": "Footer",
   "views.frontend.footer.menu_categories": "KATEGORİLER"
 }

@@ -83,4 +83,9 @@ class ShopController extends Controller
     public function destroy()
     {
     }
+
+    public function contact()
+    {
+      return view('shop::contact');
+    }
 }

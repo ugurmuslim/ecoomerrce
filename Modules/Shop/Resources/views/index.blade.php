@@ -40,7 +40,7 @@
 			<!-- Product -->
 			<section class="bg0 p-t-23 p-b-140">
 				<div class="container">
-					<div class="p-b-10 text-center">
+					<div class="p-b-10 text-center"  id="products">
 						<h3 class="ltext-103 cl5">
 							{{ __('views.shop_most_seller') }}
 						</h3>
@@ -85,14 +85,13 @@
 
 					<div class="row isotope-grid mt-5">
 						@foreach($products as $product)
-							@if($product->images()->mainImage(1)->first())
+							@if($product->images()->mainImage()->first())
 								<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category->name}}">
 									<!-- Block2 -->
 									<div class="block2">
 										<div class="block2-pic hov-img0">
+											<a href="{{route('product.shop-detail',$product->slug)}}">
 											<img src="{{asset('images/products/' . $product->images()->mainImage(1)->name)}}" style="width:255px; height:315px;" alt="{{$product->slug}}">
-											<a href="{{route('shop.product-detail',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
-												{{__('views.shop.products_quickview')}}
 											</a>
 										</div>
 
