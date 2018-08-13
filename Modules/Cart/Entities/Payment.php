@@ -62,7 +62,7 @@ class Payment extends Model
     $request->setCurrency(\Iyzipay\Model\Currency::TL);
     $request->setBasketId($basketId);
     $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-    $request->setCallbackUrl("http://localhost:8000/cart/payment/callback");
+    $request->setCallbackUrl(Config::get('services.iyizico.callbackurl'));
     $request->setEnabledInstallments(array(2, 3, 6, 9));
     $buyer = new \Iyzipay\Model\Buyer();
     $buyer->setId("232323232");

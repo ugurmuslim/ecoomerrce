@@ -110,6 +110,6 @@ return [
     'apikey' => env('IYIZICO_APIKEY'),
     'secretkey' => env('IYIZICO_SECRETKEY'),
     'baseurl' => env('IYIZICO_BASEURL'),
-
+    'callbackurl' => env('IYIZICO_CALLBACKURL')
   ],
 ];

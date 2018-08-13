@@ -30,7 +30,8 @@ class OrderShipped extends Mailable
   */
   public function build()
   {
-    return $this->from('ugur@ugur.com')
+    return $this->from('iletisim@behicesglm.com')
+    ->subject('Kargo Gönderildi')
     ->view('sale::emails.orderShipped')
     ->with(['shipping_number'=>$this->shipping_number,
     'adress'=>$this->adress]);
