@@ -237,6 +237,7 @@
   "views.shop.update_cart" : "Sepeti Güncelle",
   "views.shop.proceed_to_checkout" : "ÖDEMEYE GİT",
   "views.shop.cart_totals" : "Sepet Toplamı",
+  "views.shop.cart_tax" : "Kdv",
   "views.shop.sub_totals" : "Ara Toplam",
   "views.shop.shipping" : "Teslimat",
   "views.shop.cart_total" : "Toplam",

@@ -106,13 +106,12 @@
 						<div class="size-208 w-full-ssm">
 							<span class="stext-110 cl2">
 								{{__('views.shop.shipping')}}
-
 							</span>
 						</div>
 
 						<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-							<p class="stext-111 cl6 p-t-2">
-								Ürünlerimiz MNG kargo ile Gönderilmektedir
+							<p class="mtext-110 cl6 p-t-2">
+								Kapıda Ödeme - <span class="simge-tl">&#8378;</span>8
 							</p>
 							{{--
 							<div class="p-t-15">
@@ -151,14 +150,17 @@
 <div class="flex-w flex-t p-t-27 p-b-33">
 	<div class="size-208">
 		<span class="mtext-101 cl2">
-			{{__('views.shop.cart_total')}}
+		<p>	{{__('views.shop.cart_total')}}</p>
+		</span>
+		<span class="mtext-101 cl2 mt-2">
+		<p class="mt-2 ">	{{__('views.shop.cart_tax')}}</p>
 		</span>
 	</div>
 
 	<div class="size-209 p-t-1">
 		<span class="mtext-110 cl2">
 			<span class="simge-tl">&#8378;</span> {{Cart::total()}}</br>
-			<span class="simge-tl">&#8378;</span> {{Cart::tax()}}
+		<p class="mt-2"><span class="simge-tl">&#8378;</span> {{Cart::tax()}}</p>
 		</span>
 	</div>
 </div>
