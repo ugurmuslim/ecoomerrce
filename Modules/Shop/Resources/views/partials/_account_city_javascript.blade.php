@@ -24,7 +24,6 @@ $('#account_name').on('change',function() {
       $('#account_name_change').val(adress.account_name);
       $('#name').val(adress.first_name);
       $('#lastname').val(adress.last_name);
-      $('#email').val(adress.email);
       $('#adress').html(adress.adress);
       $("#city option[value=" + adress.city + "]").attr('selected', 'selected');
       $('#id_number').val(adress.id_number);

@@ -69,7 +69,7 @@ class Payment extends Model
     $buyer->setName($account->first_name);
     $buyer->setSurname($account->last_name);
     $buyer->setGsmNumber("+9" . $account->phone_number);
-    $buyer->setEmail($account->email);
+    $buyer->setEmail(Auth::user()->email);
     $buyer->setIdentityNumber($account->id_number);
     $buyer->setLastLoginDate(Carbon::now()->toDateTimeString());
     $buyer->setRegistrationDate($user->created_at->toDateTimeString());

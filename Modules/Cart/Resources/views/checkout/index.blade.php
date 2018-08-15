@@ -41,7 +41,7 @@
 
 						<div class="col-12 p-b-5">
 							<label class="stext-102 cl3" for="email">Email</label>
-							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="email" type="text" name="email" value="" readonly>
+							<input class="size-111 bor8 stext-102 cl2 p-lr-20" id="email" type="text" name="email" value="{{Auth::user()->email}}" readonly>
 
 						</div>
 

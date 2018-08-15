@@ -6,14 +6,28 @@
 		<!-- Header -->
 		@include('shop::partials._shopping_header')
 
+		<div class="text-center" style="background-color:#717fe0; padding:5% 5%">
+			<h2 style="color:white;">
+				BEHİCESGLM</h2>
+				<div class="mt-5">
+					@if(Session::has('success'))
+						<h1 style="color:white;">TEBRİKLER! ÖDEMENİZ BAŞARI İLE GERÇEKLEŞTİRİLDİ</h1>
+					@else
+						<h1 style="color:white;">ÜZGÜNÜZ! ÖDEME SIRASINDA BİR HATA OLUŞTU. LÜTFEN TEKRAR DENEYİN</h1>
+					@endif
+				</div>
+			</div>
+			<div class="container mt-5">
+				<a href="{{route('shop.index')}}" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mt-5">
+					{{__('views.buttons.continue_to_shopping')}}
+				</a>
+			</div>
 
-    <div class="container mt-5">
 
-    @include('partials._messages')
-  </div>
-
-
-			<!-- Footer -->
+			<div class="mt-5">
+				<!-- Footer -->
+				@include('shop::partials._footer')
+			</div>
 
 			<!-- Back to top -->
 			<div class="btn-back-to-top" id="myBtn">
@@ -34,6 +48,9 @@
 			<!--===============================================================================================-->
 			<script src="{{asset('modules/shop/vendor/select2/select2.min.js')}}"></script>
 			<script>
+			$('body').bind('beforeunload',function(){
+				window.location.replace('{{route('shop.checkout')}}');
+			});
 				$(".js-select2").each(function(){
 					$(this).select2({
 						minimumResultsForSearch: 20,
@@ -59,6 +76,8 @@
 						ps.update();
 					})
 				});
+
+
 			</script>
 			<!--===============================================================================================-->
 			<script src="{{asset('modules/shop/js/main.js')}}"></script>

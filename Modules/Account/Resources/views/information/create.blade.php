@@ -68,7 +68,7 @@
               <div class="col-12 p-b-5">
                 <label class="stext-102 cl3" for="city">Şehir</label>
                 <select class=" size-111 bor8 stext-102 cl2 p-lr-20" name="city" id="city">
-                  <option value="">Şehir Seçin</option>
+                  <option disabled selected value>Şehir Seçin</option>
                 </select>
                 <input class="size-111 bor8 stext-102 cl2 p-lr-20"  type="text" name="country" value="Türkiye" hidden>
 

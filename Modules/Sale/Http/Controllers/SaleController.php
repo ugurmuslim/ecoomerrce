@@ -64,7 +64,7 @@ class SaleController extends Controller
 
   public function deliveryMail(Request $request, $adress) {
     $adress =  AccountInfo::find($adress);
-    Mail::to($adress)->send(new OrderShipped($request->shipping_number,$adress));
+    Mail::to($adress->user)->send(new OrderShipped($request->shipping_number,$adress));
     return back()->with('success','Mail Gönderildi');
   }
 }

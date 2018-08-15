@@ -43,7 +43,6 @@ class AccountController extends Controller
     $account->account_name = $request->account_name;
     $account->first_name = $request->name;
     $account->last_name = $request->lastname;
-    $account->email = Auth::user()->email;
     $account->adress = $request->adress;
     $account->country = $request->country;
     $account->city = $request->city;
@@ -99,7 +98,6 @@ class AccountController extends Controller
     $account->account_name = $request->account_name_change;
     $account->first_name = $request->name;
     $account->last_name = $request->lastname;
-    $account->email = $request->email;
     $account->adress = $request->adress;
     $account->country = $request->country;
     $account->city = $request->city;
