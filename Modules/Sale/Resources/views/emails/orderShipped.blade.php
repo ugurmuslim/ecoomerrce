@@ -22,7 +22,7 @@
 
     <div class="container mt-5">
       <p>Kargonuz yola çıkmıştır. Kargo numaranız aşağıda yer almaktadır. Siteye geri dönmek için aşağıda bulunan linke tıklayabilirisniz.</p>
-      <p><a href="http://localhost:8000/shop">http://localhost:8000/shop</a> </p>
+      <p><a href="{{route('shop.index')}}">https://behicesglm.com</a> </p>
       <p>Kargo numaranız : {{$shipping_number}}</p>
       <h5>Kargo Bilgileri</h5>
       <p>Ülke : {{$adress->country}} </p>

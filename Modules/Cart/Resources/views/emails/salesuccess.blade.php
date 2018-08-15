@@ -14,7 +14,7 @@
 
     <div class="container mt-5">
       <p>Ödemeniz Başarı ile Alındı.</p>
-      <p><a href="http://localhost:8000/shop">http://localhost:8000/shop</a> </p>
+      <p><a href="{{route('shop.index')}}">https://behicesglm.com</a> </p>
       <p>Sipariş Numaranız : {{$product_sale[0]->sale_package}}</p>
       <table class="table">
         <thead>
