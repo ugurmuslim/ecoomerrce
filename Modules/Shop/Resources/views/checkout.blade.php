@@ -47,22 +47,22 @@
 									<td class="column-2">{{$product->name}}<br>	<span>{{$row->options->color['color_name']}}</span>
 										<span>{{$row->options->size['size_name']}}</span>
 									</td>
-									<td class="column-3"><span class="simge-tl">&#8378;</span> {{$product->price}}</td>
+									<td class="column-3"><span class="simge-tl">&#8378;</span>{{$product->price}}</td>
 									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
+										<div class="wrap-num-product flex-w m-l-auto m-r-0" data-id = {{$product->price}}>
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
 											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1"
-											value="{{$row->qty}}" data-id = {{$row->rowId}}>
+											value="{{$row->qty}}" data-id = {{$row->rowId}} readonly>
 
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
 									</td>
-									<td class="column-5">{{$product->price*$row->qty}} <span class="simge-tl">&#8378;</span> </td>
+									<td class="column-5"><span class="row_total_price">{{$product->price*$row->qty}}</span> <span class="simge-tl">&#8378;</span> </td>
 								</tr>
 								<input type="number" name="row_id[]" value="{{$row->id}}" hidden>
 								<input type="number" name="product_human_id[]" value="{{$product->product_id}}" hidden>
@@ -97,7 +97,7 @@
 
 						<div class="size-209">
 							<span class="mtext-110 cl2">
-								<span class="simge-tl">&#8378;</span>{{Cart::subtotal()}}
+								<span class="simge-tl">&#8378;</span><span class="subtotal">{{Cart::subtotal()}}</span>
 							</span>
 						</div>
 					</div>
@@ -159,8 +159,8 @@
 
 	<div class="size-209 p-t-1">
 		<span class="mtext-110 cl2">
-			<span class="simge-tl">&#8378;</span> {{Cart::total()}}</br>
-		<p class="mt-2"><span class="simge-tl">&#8378;</span> {{Cart::tax()}}</p>
+			<span class="simge-tl">&#8378;</span><span class="total">{{Cart::total()}}</span></br>
+		<p class="mt-2"><span class="simge-tl">&#8378;</span><span class="tax">{{Cart::tax()}}</span></p>
 		</span>
 	</div>
 </div>
@@ -223,6 +223,7 @@
 		$('.wrap-num-product').on('click change keyup',function(){
 			var	$row_id = $(this).find('.num-product').attr('data-id');
 			var	$row_qty = $(this).find('.num-product').val();
+			var	$row_price = $(this).attr('data-id');
 				$.ajax({
 					dataType:'json',
 					url: '{{url('cart/update')}}',
@@ -232,11 +233,25 @@
 					row_qty : $row_qty},
 					dataType: 'JSON',
 					success: function(response) {
-						window.location.replace('{{route('shop.checkout')}}');
+						$.ajax({
+							dataType:'json',
+							url: '{{url('api/cart')}}',
+							type: 'get',
+							dataType: 'JSON',
+							success: function(response) {
+								$('.subtotal').html(response.subtotal);
+								$('.total').html(response.total);
+								$('.tax').html(response.tax);
+								$('.row_total_price').html($row_price*$row_qty);
+							}
+						});
 					}
 				});
-
 			});
+
+			function getCartTotal() {
+				window.location.replace('{{route('shop.checkout')}}');
+			}
 
 			$('.how-itemcart1').on('click',function() {
 				var	$parent_tr = $(this).parents('tr');
@@ -250,8 +265,6 @@
 						window.location.replace('{{route('shop.checkout')}}');
 					}
 				});
-
-
 			})
 	</script>
 	<!--===============================================================================================-->
